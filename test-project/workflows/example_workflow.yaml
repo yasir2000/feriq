@@ -1,0 +1,42 @@
+# Example Workflow Configuration
+
+name: research_workflow
+title: Market Research Workflow
+description: Automated workflow for conducting market research
+
+stages:
+  - name: planning
+    description: Plan research approach
+    agents: [research_agent]
+    tasks:
+      - define_research_scope
+      - identify_data_sources
+    
+  - name: data_collection
+    description: Collect research data
+    agents: [research_agent]
+    tasks:
+      - gather_competitor_data
+      - collect_market_data
+      - survey_target_audience
+    
+  - name: analysis
+    description: Analyze collected data
+    agents: [research_agent]
+    tasks:
+      - analyze_competitors
+      - identify_trends
+      - segment_audience
+    
+  - name: reporting
+    description: Generate research report
+    agents: [research_agent]
+    tasks:
+      - create_summary
+      - generate_insights
+      - provide_recommendations
+
+dependencies:
+  - planning -> data_collection
+  - data_collection -> analysis
+  - analysis -> reporting

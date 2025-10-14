@@ -1,0 +1,23 @@
+# Example Goal Configuration
+
+name: research_goal
+title: Comprehensive Market Research
+description: |
+  Conduct comprehensive market research for a new product launch,
+  including competitor analysis, target audience identification,
+  and market trends analysis.
+
+objectives:
+  - Analyze competitor landscape
+  - Identify target demographics
+  - Research market trends
+  - Provide actionable insights
+
+success_criteria:
+  - Complete competitor analysis report
+  - Target audience profile
+  - Market trend summary
+  - Strategic recommendations
+
+priority: high
+estimated_duration: "4 hours"

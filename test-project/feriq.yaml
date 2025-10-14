@@ -1,0 +1,16 @@
+agents: {}
+framework:
+  features:
+  - role_designer
+  - task_designer
+  - plan_designer
+  - plan_observer
+  - workflow_executor
+  - reasoner
+  version: 0.1.0
+goals: {}
+models: {}
+name: test-project
+template: basic
+version: 0.1.0
+workflows: {}
