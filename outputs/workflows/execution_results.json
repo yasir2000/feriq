@@ -1,0 +1,33 @@
+{
+  "workflow_001": {
+    "execution_id": "exec_001",
+    "start_time": "2025-10-05T01:13:57.457023",
+    "status": "running",
+    "completed_stages": [
+      "research",
+      "design"
+    ],
+    "current_stage": "implementation",
+    "metrics": {
+      "tasks_completed": 12,
+      "tasks_remaining": 8,
+      "efficiency_score": 0.87
+    }
+  },
+  "workflow_002": {
+    "execution_id": "exec_002",
+    "start_time": "2025-10-10T01:13:57.457023",
+    "end_time": "2025-10-15T01:13:57.457023",
+    "status": "completed",
+    "completed_stages": [
+      "content_creation",
+      "review",
+      "publication"
+    ],
+    "metrics": {
+      "tasks_completed": 6,
+      "tasks_remaining": 0,
+      "efficiency_score": 0.95
+    }
+  }
+}

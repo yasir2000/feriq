@@ -1,0 +1,27 @@
+{
+  "agent_interaction_matrix": {
+    "agent_001": {
+      "agent_002": 15,
+      "agent_003": 8,
+      "agent_004": 5
+    },
+    "agent_002": {
+      "agent_001": 15,
+      "agent_003": 12,
+      "agent_004": 3
+    },
+    "agent_003": {
+      "agent_001": 8,
+      "agent_002": 12,
+      "agent_004": 7
+    }
+  },
+  "communication_efficiency": {
+    "overall_score": 0.89,
+    "pattern_effectiveness": {
+      "research_collaboration": 0.92,
+      "project_reporting": 0.85,
+      "code_review": 0.91
+    }
+  }
+}

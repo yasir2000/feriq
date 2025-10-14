@@ -1,0 +1,17 @@
+[
+  {
+    "timestamp": "2025-10-15T01:13:57.420764",
+    "event": "workflow_stage_transition",
+    "workflow_id": "workflow_001",
+    "from_stage": "design",
+    "to_stage": "implementation",
+    "triggered_by": "milestone_completion"
+  },
+  {
+    "timestamp": "2025-10-14T21:13:57.457023",
+    "event": "resource_reallocation",
+    "workflow_id": "workflow_001",
+    "resource": "agent_003",
+    "action": "assigned_to_critical_task"
+  }
+]

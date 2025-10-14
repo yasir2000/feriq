@@ -1,0 +1,9 @@
+{
+  "role_designer": 8,
+  "task_designer": 12,
+  "plan_designer": 6,
+  "plan_observer": 25,
+  "workflow_orchestrator": 15,
+  "choreographer": 18,
+  "reasoner": 10
+}

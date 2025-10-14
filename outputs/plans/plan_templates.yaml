@@ -1,0 +1,23 @@
+research_project:
+  default_duration: 180
+  phases:
+  - literature_review
+  - methodology
+  - data_collection
+  - analysis
+  - publication
+  required_roles:
+  - research_specialist
+  - data_analyst
+software_development:
+  default_duration: 90
+  phases:
+  - requirements
+  - design
+  - implementation
+  - testing
+  - deployment
+  required_roles:
+  - technical_lead
+  - developers
+  - tester

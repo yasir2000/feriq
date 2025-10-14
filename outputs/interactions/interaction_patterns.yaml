@@ -1,0 +1,21 @@
+code_review:
+  communication_frequency: per_commit
+  coordination_style: asynchronous
+  description: Pattern for technical code review process
+  participants:
+  - technical_lead
+  - developers
+project_reporting:
+  communication_frequency: weekly
+  coordination_style: asynchronous
+  description: Pattern for project status reporting
+  participants:
+  - project_manager
+  - stakeholders
+research_collaboration:
+  communication_frequency: high
+  coordination_style: synchronous
+  description: Pattern for collaborative research activities
+  participants:
+  - research_specialist
+  - data_analyst

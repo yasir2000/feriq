@@ -80,6 +80,13 @@ try:
 except ImportError:
     pass  # Reasoning planning commands not available
 
+# Add comprehensive listing commands
+try:
+    from feriq.cli.list_commands import add_list_commands
+    add_list_commands(cli)
+except ImportError:
+    pass  # List commands not available
+
 
 @cli.command()
 @click.option('--output', '-o', type=click.Choice(['json', 'yaml', 'table']), default='table')

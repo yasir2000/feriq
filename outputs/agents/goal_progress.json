@@ -1,0 +1,28 @@
+{
+  "agent_001": [
+    {
+      "goal_id": "goal_001",
+      "progress": 85,
+      "status": "in_progress"
+    },
+    {
+      "goal_id": "goal_002",
+      "progress": 45,
+      "status": "in_progress"
+    }
+  ],
+  "agent_002": [
+    {
+      "goal_id": "goal_003",
+      "progress": 70,
+      "status": "in_progress"
+    }
+  ],
+  "agent_003": [
+    {
+      "goal_id": "goal_004",
+      "progress": 100,
+      "status": "completed"
+    }
+  ]
+}

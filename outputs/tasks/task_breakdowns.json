@@ -1,0 +1,34 @@
+{
+  "task_001": {
+    "name": "Literature Review",
+    "description": "Comprehensive review of existing research in AI reasoning",
+    "status": "in_progress",
+    "priority": "high",
+    "assigned_agent": "agent_001",
+    "estimated_duration": "5 days",
+    "dependencies": [],
+    "created_at": "2025-10-15T01:13:57.420764"
+  },
+  "task_002": {
+    "name": "Data Collection",
+    "description": "Gather datasets for training reasoning models",
+    "status": "pending",
+    "priority": "medium",
+    "assigned_agent": "agent_004",
+    "estimated_duration": "3 days",
+    "dependencies": [
+      "task_001"
+    ],
+    "created_at": "2025-10-15T01:13:57.420764"
+  },
+  "task_003": {
+    "name": "Architecture Design",
+    "description": "Design system architecture for reasoning framework",
+    "status": "completed",
+    "priority": "critical",
+    "assigned_agent": "agent_003",
+    "estimated_duration": "7 days",
+    "dependencies": [],
+    "created_at": "2025-10-15T01:13:57.420764"
+  }
+}

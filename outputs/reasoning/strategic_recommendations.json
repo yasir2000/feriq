@@ -1,0 +1,23 @@
+[
+  {
+    "recommendation": "Increase parallel task execution to accelerate project timeline",
+    "priority": "high",
+    "reasoning_type": "temporal",
+    "expected_impact": "20% timeline reduction",
+    "confidence": 0.85
+  },
+  {
+    "recommendation": "Implement cross-training program to improve agent versatility",
+    "priority": "medium",
+    "reasoning_type": "inductive",
+    "expected_impact": "Improved resource flexibility",
+    "confidence": 0.78
+  },
+  {
+    "recommendation": "Establish automated quality gates to prevent defect propagation",
+    "priority": "high",
+    "reasoning_type": "causal",
+    "expected_impact": "40% reduction in downstream issues",
+    "confidence": 0.92
+  }
+]

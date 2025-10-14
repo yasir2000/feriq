@@ -1,0 +1,19 @@
+data_analyst:
+  capabilities_template:
+  - data_processing
+  - visualization
+  - reporting
+  description: Analyzes data and generates insights
+  template_vars:
+  - domain
+  - data_sources
+  - analysis_types
+quality_assurance:
+  capabilities_template:
+  - testing
+  - quality_control
+  - documentation
+  description: Ensures quality standards and testing
+  template_vars:
+  - testing_types
+  - quality_metrics

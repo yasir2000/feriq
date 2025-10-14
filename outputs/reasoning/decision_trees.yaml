@@ -1,0 +1,18 @@
+resource_allocation_tree:
+  branches:
+    'no': Queue task or reallocate resources
+    'yes':
+      branches:
+        'no': Provide training or find alternative
+        'yes': Assign task to agent
+      question: Does agent have required skills?
+  root: Is agent available?
+risk_assessment_tree:
+  branches:
+    'no':
+      branches:
+        'no': Add to risk register for periodic review
+        'yes': Monitor closely and prepare mitigation
+      question: Is impact severity high?
+    'yes': Implement immediate mitigation
+  root: Is risk probability > 0.7?

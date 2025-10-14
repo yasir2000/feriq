@@ -1,0 +1,16 @@
+[
+  {
+    "agent_id": "agent_001",
+    "timestamp": "2025-10-15T01:13:57.420764",
+    "learning_type": "performance_improvement",
+    "description": "Improved research efficiency by optimizing query strategies",
+    "impact_score": 0.15
+  },
+  {
+    "agent_id": "agent_002",
+    "timestamp": "2025-10-14T01:13:57.447923",
+    "learning_type": "skill_acquisition",
+    "description": "Learned new stakeholder communication patterns",
+    "impact_score": 0.08
+  }
+]

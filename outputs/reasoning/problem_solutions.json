@@ -1,0 +1,24 @@
+[
+  {
+    "problem_id": "prob_001",
+    "description": "Agent workload imbalance causing bottlenecks",
+    "solution": "Implement dynamic task reallocation based on real-time capacity",
+    "reasoning_approach": "optimization + collaborative",
+    "implementation_steps": [
+      "Monitor agent capacity in real-time",
+      "Implement task reallocation algorithm",
+      "Test with pilot workload"
+    ]
+  },
+  {
+    "problem_id": "prob_002",
+    "description": "Communication gaps between distributed team members",
+    "solution": "Establish structured communication patterns with regular checkpoints",
+    "reasoning_approach": "collaborative + temporal",
+    "implementation_steps": [
+      "Define communication templates",
+      "Schedule regular sync meetings",
+      "Implement communication tracking"
+    ]
+  }
+]

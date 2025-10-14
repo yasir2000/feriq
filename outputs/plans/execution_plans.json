@@ -1,0 +1,56 @@
+{
+  "plan_001": {
+    "name": "AI Reasoning System Development",
+    "description": "Complete development of advanced reasoning system",
+    "status": "active",
+    "progress": 65,
+    "start_date": "2025-10-15T01:13:57.420764",
+    "estimated_completion": "2025-11-14T01:13:57.435699",
+    "tasks": [
+      "task_001",
+      "task_002",
+      "task_003"
+    ],
+    "milestones": [
+      {
+        "name": "Research Complete",
+        "date": "2025-10-20",
+        "status": "completed"
+      },
+      {
+        "name": "Architecture Approved",
+        "date": "2025-10-25",
+        "status": "in_progress"
+      },
+      {
+        "name": "Implementation Ready",
+        "date": "2025-11-01",
+        "status": "pending"
+      }
+    ]
+  },
+  "plan_002": {
+    "name": "CLI Enhancement Project",
+    "description": "Enhance CLI with comprehensive listing capabilities",
+    "status": "active",
+    "progress": 80,
+    "start_date": "2025-10-15T01:13:57.420764",
+    "estimated_completion": "2025-10-22T01:13:57.435699",
+    "tasks": [
+      "task_004",
+      "task_005"
+    ],
+    "milestones": [
+      {
+        "name": "Commands Implemented",
+        "date": "2025-10-16",
+        "status": "completed"
+      },
+      {
+        "name": "Testing Complete",
+        "date": "2025-10-18",
+        "status": "pending"
+      }
+    ]
+  }
+}

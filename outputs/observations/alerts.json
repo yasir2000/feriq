@@ -1,0 +1,23 @@
+[
+  {
+    "id": "alert_001",
+    "severity": "warning",
+    "message": "Task task_002 approaching deadline",
+    "status": "active",
+    "created_at": "2025-10-15T01:13:57.420764",
+    "context": {
+      "task_id": "task_002",
+      "deadline": "2025-10-20"
+    }
+  },
+  {
+    "id": "alert_002",
+    "severity": "info",
+    "message": "New agent agent_005 added to project",
+    "status": "resolved",
+    "created_at": "2025-10-14T19:13:57.442733",
+    "context": {
+      "agent_id": "agent_005"
+    }
+  }
+]

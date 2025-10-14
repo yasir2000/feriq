@@ -1,0 +1,28 @@
+workflow_001:
+  agents:
+  - agent_001
+  - agent_002
+  - agent_003
+  current_stage: implementation
+  description: End-to-end R&D workflow with quality gates
+  name: Research and Development Pipeline
+  progress: 60
+  stages:
+  - research
+  - design
+  - implementation
+  - testing
+  status: running
+workflow_002:
+  agents:
+  - agent_001
+  - agent_004
+  current_stage: publication
+  description: Automated documentation creation and review
+  name: Documentation Generation
+  progress: 100
+  stages:
+  - content_creation
+  - review
+  - publication
+  status: completed

@@ -1,0 +1,26 @@
+[
+  {
+    "timestamp": "2025-10-15T01:13:57.462023",
+    "sender": "agent_001",
+    "receiver": "agent_002",
+    "type": "progress_update",
+    "pattern": "research_collaboration",
+    "message_id": "msg_001"
+  },
+  {
+    "timestamp": "2025-10-15T00:43:57.462023",
+    "sender": "agent_002",
+    "receiver": "agent_003",
+    "type": "task_assignment",
+    "pattern": "project_coordination",
+    "message_id": "msg_002"
+  },
+  {
+    "timestamp": "2025-10-15T00:13:57.462023",
+    "sender": "agent_003",
+    "receiver": "agent_001",
+    "type": "review_request",
+    "pattern": "code_review",
+    "message_id": "msg_003"
+  }
+]

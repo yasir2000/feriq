@@ -1,0 +1,8 @@
+allocation_summary:
+- Optimal allocation achieved with 95% efficiency
+- Agent workload balanced across skill sets
+- Critical path identified with 3 bottleneck tasks
+optimization_metrics:
+  efficiency_score: 0.95
+  load_balance_score: 0.88
+  skill_match_score: 0.92

@@ -1,0 +1,39 @@
+[
+  {
+    "reasoning_id": "reason_001",
+    "reasoning_type": "causal",
+    "query": "Why did task_002 experience delays?",
+    "conclusion": "Task delay caused by dependency wait on task_001 completion",
+    "confidence": 0.89,
+    "evidence": [
+      "task_001 completion delayed by 2 days",
+      "task_002 has strict dependency"
+    ],
+    "timestamp": "2025-10-15T01:13:57.420764"
+  },
+  {
+    "reasoning_id": "reason_002",
+    "reasoning_type": "probabilistic",
+    "query": "What is the probability of meeting project deadline?",
+    "conclusion": "High probability (0.82) of meeting deadline with current resource allocation",
+    "confidence": 0.82,
+    "evidence": [
+      "current progress rate",
+      "remaining task complexity",
+      "resource availability"
+    ],
+    "timestamp": "2025-10-15T01:13:57.420764"
+  },
+  {
+    "reasoning_id": "reason_003",
+    "reasoning_type": "inductive",
+    "query": "What patterns emerge from agent performance data?",
+    "conclusion": "Agents perform 15% better on tasks matching their specialized skills",
+    "confidence": 0.91,
+    "evidence": [
+      "historical performance data",
+      "skill-task matching analysis"
+    ],
+    "timestamp": "2025-10-15T01:13:57.420764"
+  }
+]

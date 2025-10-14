@@ -1,0 +1,28 @@
+{
+  "project_timeline": [
+    {
+      "phase": "Research",
+      "start": "2025-10-01",
+      "end": "2025-10-15",
+      "status": "completed"
+    },
+    {
+      "phase": "Design",
+      "start": "2025-10-10",
+      "end": "2025-10-25",
+      "status": "in_progress"
+    },
+    {
+      "phase": "Implementation",
+      "start": "2025-10-20",
+      "end": "2025-11-15",
+      "status": "pending"
+    },
+    {
+      "phase": "Testing",
+      "start": "2025-11-10",
+      "end": "2025-11-25",
+      "status": "pending"
+    }
+  ]
+}

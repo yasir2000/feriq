@@ -1,0 +1,37 @@
+agent_001:
+  capabilities:
+  - research
+  - analysis
+  - reporting
+  goals:
+  - goal_001
+  - goal_002
+  last_active: '2025-10-15T00:43:57.447923'
+  name: Research Agent Alpha
+  performance_score: 0.92
+  role: research_specialist
+  status: active
+agent_002:
+  capabilities:
+  - planning
+  - coordination
+  - communication
+  goals:
+  - goal_003
+  last_active: '2025-10-15T01:13:57.447923'
+  name: Project Coordinator
+  performance_score: 0.88
+  role: project_manager
+  status: busy
+agent_003:
+  capabilities:
+  - architecture
+  - coding
+  - review
+  goals:
+  - goal_004
+  last_active: '2025-10-14T23:13:57.447923'
+  name: Tech Lead Beta
+  performance_score: 0.95
+  role: technical_lead
+  status: idle

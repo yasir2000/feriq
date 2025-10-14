@@ -1,0 +1,36 @@
+project_manager:
+  capabilities:
+  - planning
+  - coordination
+  - communication
+  created_at: '2025-10-15T01:13:57.420764'
+  description: Manages project timelines, resources, and stakeholder communication
+  requirements:
+  - leadership
+  - organization
+  status: active
+  type: coordination
+research_specialist:
+  capabilities:
+  - data_gathering
+  - analysis
+  - report_generation
+  created_at: '2025-10-15T01:13:57.420764'
+  description: Conducts thorough research and analysis on complex topics
+  requirements:
+  - domain_expertise
+  - analytical_thinking
+  status: active
+  type: research
+technical_lead:
+  capabilities:
+  - architecture_design
+  - code_review
+  - mentoring
+  created_at: '2025-10-15T01:13:57.420764'
+  description: Provides technical guidance and architecture decisions
+  requirements:
+  - technical_expertise
+  - leadership
+  status: active
+  type: technical
