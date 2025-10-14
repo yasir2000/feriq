@@ -66,6 +66,20 @@ cli.add_command(workflow_group)
 cli.add_command(status_group)
 cli.add_command(interactive_group)
 
+# Add reasoning commands
+try:
+    from feriq.cli.reasoning_commands import add_reasoning_commands
+    add_reasoning_commands(cli)
+except ImportError:
+    pass  # Reasoning commands not available
+
+# Add reasoning planning commands
+try:
+    from feriq.cli.reasoning_planning_commands import add_reasoning_planning_commands
+    add_reasoning_planning_commands(cli)
+except ImportError:
+    pass  # Reasoning planning commands not available
+
 
 @cli.command()
 @click.option('--output', '-o', type=click.Choice(['json', 'yaml', 'table']), default='table')
