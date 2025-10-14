@@ -1,5 +1,7 @@
 
 
+<img width="526" height="290" alt="image" src="https://github.com/user-attachments/assets/3514c1f4-7570-44fe-aef9-64b214715d41" />
+
 
 # Feriq - Collaborative AI Agents Framework
 
