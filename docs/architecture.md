@@ -1,43 +1,54 @@
 # Feriq Architecture Overview
 
-Comprehensive guide to the Feriq Collaborative AI Agents Framework architecture, design principles, and component interactions.
+Comprehensive guide to the Feriq Collaborative AI Agents Framework architecture, featuring 8 core components, comprehensive CLI system, and advanced reasoning capabilities.
 
 ## Table of Contents
 
 1. [Architecture Philosophy](#architecture-philosophy)
 2. [System Overview](#system-overview)
 3. [Core Components](#core-components)
-4. [Component Interactions](#component-interactions)
-5. [Data Flow](#data-flow)
-6. [Scalability and Performance](#scalability-and-performance)
-7. [Security and Reliability](#security-and-reliability)
-8. [Extension Points](#extension-points)
-9. [Deployment Architectures](#deployment-architectures)
-10. [Future Roadmap](#future-roadmap)
+4. [CLI Architecture](#cli-architecture)
+5. [Reasoning System](#reasoning-system)
+6. [Component Interactions](#component-interactions)
+7. [Data Flow & Output Management](#data-flow--output-management)
+8. [Scalability and Performance](#scalability-and-performance)
+9. [Security and Reliability](#security-and-reliability)
+10. [Extension Points](#extension-points)
+11. [Deployment Architectures](#deployment-architectures)
 
 ## Architecture Philosophy
 
 Feriq is designed around several key architectural principles:
 
-### 1. **Modularity and Composability**
-- Each component has a single, well-defined responsibility
-- Components can be combined flexibly to create different workflows
-- Clear interfaces enable easy extension and customization
+### 1. **Comprehensive Component Integration**
+- 8 specialized components each with well-defined responsibilities
+- Seamless integration between all framework components
+- Comprehensive output tracking and monitoring across all components
 
-### 2. **Collaborative Intelligence**
-- Agents work together rather than in isolation
+### 2. **Reasoning-Enhanced Intelligence**
+- Advanced reasoning engines integrated into planning and decision-making
+- 10+ reasoning types supporting diverse problem-solving approaches
+- Intelligent planning strategies using causal, probabilistic, and collaborative reasoning
+
+### 3. **Professional CLI Interface**
+- Complete command-line interface for all framework operations
+- Comprehensive listing capabilities with flexible filtering and formatting
+- Real-time monitoring and performance tracking through CLI
+
+### 4. **Collaborative Intelligence**
+- Agents work together with sophisticated coordination patterns
 - Shared context and knowledge enable emergent behaviors
-- Coordination patterns optimize multi-agent interactions
+- Cross-component communication and data sharing
 
-### 3. **Adaptive and Learning**
+### 5. **Adaptive and Learning**
 - Components learn from experience and adapt behavior
 - Dynamic role assignment based on capabilities and context
 - Continuous optimization of workflows and resource allocation
 
-### 4. **Scalable and Distributed**
-- Designed to scale from single-machine to distributed deployments
-- Asynchronous execution enables high concurrency
-- Resource management supports elastic scaling
+### 6. **Production-Ready Architecture**
+- Scalable from single-machine to distributed deployments
+- Comprehensive monitoring, logging, and output management
+- Multiple output formats and integration capabilities
 
 ## System Overview
 
@@ -45,71 +56,186 @@ Feriq is designed around several key architectural principles:
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│                                Feriq Framework                              │
+│                           🏗️ Feriq Framework                                │
 ├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐              │
-│  │   CLI Interface │  │   Web Interface │  │   API Gateway   │              │
-│  └─────────────────┘  └─────────────────┘  └─────────────────┘              │
-│                                 │                                           │
-├─────────────────────────────────┼─────────────────────────────────────────────┤
-│                                 │                                           │
-│  ┌─────────────────────────────────────────────────────────────────────────┐  │
-│  │                        Framework Core                                  │  │
-│  │  ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐          │  │
-│  │  │  Configuration  │ │  Event System   │ │  Plugin Manager │          │  │
-│  │  │     Manager     │ │                 │ │                 │          │  │
-│  │  └─────────────────┘ └─────────────────┘ └─────────────────┘          │  │
-│  └─────────────────────────────────────────────────────────────────────────┘  │
-│                                 │                                           │
-├─────────────────────────────────┼─────────────────────────────────────────────┤
-│                                 │                                           │
-│  ┌─────────────────────────────────────────────────────────────────────────┐  │
-│  │                      Component Layer                                   │  │
-│  │                                                                         │  │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌─────────────┐  │  │
-│  │  │   Dynamic    │  │     Task     │  │     Plan     │  │    Plan     │  │  │
-│  │  │    Role      │  │   Designer   │  │   Designer   │  │  Observer   │  │  │
-│  │  │  Designer    │  │ & Allocator  │  │              │  │             │  │  │
-│  │  └──────────────┘  └──────────────┘  └──────────────┘  └─────────────┘  │  │
-│  │                                                                         │  │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌─────────────┐  │  │
-│  │  │   Workflow   │  │ Choreographer│  │   Reasoner   │  │   Agent     │  │  │
-│  │  │ Orchestrator │  │              │  │              │  │   Manager   │  │  │
-│  │  └──────────────┘  └──────────────┘  └──────────────┘  └─────────────┘  │  │
-│  └─────────────────────────────────────────────────────────────────────────┘  │
-│                                 │                                           │
-├─────────────────────────────────┼─────────────────────────────────────────────┤
-│                                 │                                           │
-│  ┌─────────────────────────────────────────────────────────────────────────┐  │
-│  │                      Foundation Layer                                  │  │
-│  │                                                                         │  │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌─────────────┐  │  │
-│  │  │  Knowledge   │  │   Memory     │  │    Tool      │  │   Model     │  │  │
-│  │  │     Base     │  │   Manager    │  │   Registry   │  │   Manager   │  │  │
-│  │  └──────────────┘  └──────────────┘  └──────────────┘  └─────────────┘  │  │
-│  │                                                                         │  │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌─────────────┐  │  │
-│  │  │   Execution  │  │ Communication│  │   Resource   │  │   Storage   │  │  │
-│  │  │    Engine    │  │   Manager    │  │   Manager    │  │   Manager   │  │  │
-│  │  └──────────────┘  └──────────────┘  └──────────────┘  └─────────────┘  │  │
-│  └─────────────────────────────────────────────────────────────────────────┘  │
-│                                 │                                           │
-├─────────────────────────────────┼─────────────────────────────────────────────┤
-│                                 │                                           │
-│  ┌─────────────────────────────────────────────────────────────────────────┐  │
-│  │                       CrewAI Foundation                                │  │
-│  │  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  ┌─────────────┐  │  │
-│  │  │    Agent     │  │     Task     │  │     Crew     │  │    Tools    │  │  │
-│  │  │    Base      │  │     Base     │  │    Base      │  │    Base     │  │  │
-│  │  └──────────────┘  └──────────────┘  └──────────────┘  └─────────────┘  │  │
-│  └─────────────────────────────────────────────────────────────────────────┘  │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐           │
+│  │ 🎭 Role Designer │  │ 📋 Task Designer │  │ 📊 Plan Designer │           │
+│  │                 │  │ & Allocator     │  │                 │           │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘           │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐           │
+│  │ 👁️ Plan Observer │  │ 🎯 Agent System │  │ 🎼 Orchestrator │           │
+│  │                 │  │                 │  │                 │           │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘           │
+│  ┌─────────────────┐  ┌─────────────────┐                               │
+│  │ 💃 Choreographer │  │ 🧠 Reasoner     │                               │
+│  │                 │  │                 │                               │
+│  └─────────────────┘  └─────────────────┘                               │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                        🖥️ Comprehensive CLI System                          │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐           │
+│  │ 📋 List Commands │  │ 🧠 Planning     │  │ 🔧 Management   │           │
+│  │ • Components    │  │ • Strategies    │  │ • Models        │           │
+│  │ • Filtering     │  │ • Analysis      │  │ • Projects      │           │
+│  │ • Monitoring    │  │ • Demos         │  │ • Interactive   │           │
+```
+
+### Component Output Management
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                          📊 Output Management System                        │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  outputs/                                                                   │
+│  ├── roles/              # 🎭 Role Designer outputs                        │
+│  │   ├── role_definitions.yaml                                             │
+│  │   ├── role_assignments.json                                             │
+│  │   └── role_templates.yaml                                               │
+│  ├── tasks/              # 📋 Task Designer & Allocator outputs            │
+│  │   ├── task_breakdowns.json                                              │
+│  │   ├── task_assignments.json                                             │
+│  │   └── allocation_reports.yaml                                           │
+│  ├── plans/              # 📊 Plan Designer outputs                        │
+│  │   ├── execution_plans.json                                              │
+│  │   ├── resource_allocations.yaml                                         │
+│  │   └── timeline_schedules.json                                           │
+│  ├── observations/       # 👁️ Plan Observer outputs                       │
+│  │   ├── execution_logs.json                                               │
+│  │   ├── performance_metrics.json                                          │
+│  │   ├── status_reports.yaml                                               │
+│  │   └── alerts.json                                                       │
+│  ├── agents/             # 🎯 Agent System outputs                         │
+│  │   ├── agent_configs.yaml                                                │
+│  │   ├── goal_progress.json                                                │
+│  │   ├── learning_logs.json                                                │
+│  │   └── adaptations.yaml                                                  │
+│  ├── workflows/          # 🎼 Workflow Orchestrator outputs                │
+│  │   ├── workflow_definitions.yaml                                         │
+│  │   ├── execution_results.json                                            │
+│  │   ├── resource_usage.json                                               │
+│  │   └── coordination_logs.json                                            │
+│  ├── interactions/       # 💃 Choreographer outputs                        │
+│  │   ├── interaction_patterns.yaml                                         │
+│  │   ├── communication_logs.json                                           │
+│  │   └── coordination_matrices.json                                        │
+│  ├── reasoning/          # 🧠 Reasoner outputs                             │
+│  │   ├── reasoning_results.json                                            │
+│  │   ├── decision_trees.yaml                                               │
+│  │   ├── strategic_recommendations.json                                    │
+│  │   └── problem_solutions.json                                            │
+│  └── actions/            # 🎬 Cross-component actions                      │
+│      ├── action_history.json                                               │
+│      ├── component_actions.json                                            │
+│      └── system_events.json                                                │
 └─────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### Key Architectural Layers
 
-1. **Interface Layer**: CLI, Web UI, and API interfaces
+1. **🖥️ CLI Interface Layer**: Comprehensive command-line interface with listing and monitoring
+2. **🏗️ Framework Core Layer**: Central coordination and component management
+3. **🧩 Component Layer**: 8 specialized framework components working in harmony
+4. **🧠 Reasoning Layer**: Advanced reasoning engines integrated across components
+5. **📊 Output Management Layer**: Comprehensive tracking and storage of all component outputs
+6. **🔧 Foundation Layer**: Core services and infrastructure
+7. **🏛️ Base Platform**: CrewAI foundation with enhanced capabilities
+
+## CLI Architecture
+
+### Command Structure
+
+```
+feriq
+├── init/               # Project initialization
+│   └── project
+├── list/               # Comprehensive component listing
+│   ├── components      # Framework overview
+│   ├── roles          # Role designer outputs
+│   ├── tasks          # Task designer outputs
+│   ├── plans          # Plan designer outputs
+│   ├── observations   # Plan observer outputs
+│   ├── agents         # Agent configurations
+│   ├── workflows      # Workflow orchestrator outputs
+│   ├── interactions   # Choreographer outputs
+│   ├── reasoning      # Reasoner outputs
+│   ├── actions        # Cross-component actions
+│   └── generate-samples # Demo data generation
+├── plan/              # Reasoning-enhanced planning
+│   ├── strategies     # Available planning strategies
+│   ├── create         # Create intelligent plans
+│   ├── analyze        # Analyze planning requirements
+│   └── demo           # Planning demonstrations
+├── reason/            # Direct reasoning commands
+│   ├── apply          # Apply reasoning to queries
+│   ├── analyze        # Reasoning analysis
+│   └── types          # Available reasoning types
+├── model/             # Model management
+│   ├── list           # Available models
+│   ├── test           # Test model functionality
+│   ├── setup          # Configure models
+│   └── pull           # Download models
+├── agent/             # Agent management
+├── goal/              # Goal management
+├── workflow/          # Workflow management
+├── status/            # System status
+└── interactive/       # Interactive mode
+```
+
+### CLI Data Flow
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   User Input    │ -> │  CLI Commands   │ -> │  Component      │
+│                 │    │                 │    │  Actions        │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+                                                       │
+                                                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│  Format Output  │ <- │   Read Outputs  │ <- │  Generate       │
+│  (Table/JSON)   │    │   from Files    │    │  Outputs        │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+## Reasoning System
+
+### Reasoning Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        🧠 Advanced Reasoning System                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐           │
+│  │ Reasoning Types │  │ Planning        │  │ Decision        │           │
+│  │ • Causal        │  │ Integration     │  │ Support         │           │
+│  │ • Probabilistic │  │ • 7 Strategies  │  │ • Trees         │           │
+│  │ • Temporal      │  │ • Context-Aware │  │ • Recommendations│          │
+│  │ • Spatial       │  │ • Optimization  │  │ • Solutions     │           │
+│  │ • Collaborative │  │                 │  │                 │           │
+│  └─────────────────┘  └─────────────────┘  └─────────────────┘           │
+│                                │                                         │
+│  ┌─────────────────────────────────────────────────────────────────────────┐  │
+│  │                   Reasoning-Enhanced Planning                          │  │
+│  │  ┌───────────────┐ ┌───────────────┐ ┌───────────────┐ ┌─────────────┐ │  │
+│  │  │   Causal      │ │ Probabilistic │ │   Temporal    │ │   Spatial   │ │  │
+│  │  │  Optimized    │ │     Risk      │ │  Sequenced    │ │ Distributed │ │  │
+│  │  └───────────────┘ └───────────────┘ └───────────────┘ └─────────────┘ │  │
+│  │  ┌───────────────┐ ┌───────────────┐ ┌───────────────┐               │  │
+│  │  │ Collaborative │ │   Inductive   │ │     Hybrid    │               │  │
+│  │  │  Consensus    │ │    Learned    │ │ Intelligent   │               │  │
+│  │  └───────────────┘ └───────────────┘ └───────────────┘               │  │
+│  └─────────────────────────────────────────────────────────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+### Reasoning Integration Points
+
+1. **🎭 Role Designer**: Uses reasoning to determine optimal role assignments
+2. **📋 Task Designer**: Applies causal reasoning for task dependency analysis
+3. **📊 Plan Designer**: Enhanced with reasoning-based planning strategies
+4. **👁️ Plan Observer**: Uses probabilistic reasoning for risk assessment
+5. **🎯 Agents**: Integrate reasoning capabilities for intelligent decision-making
+6. **🎼 Orchestrator**: Uses reasoning for resource optimization
+7. **💃 Choreographer**: Applies collaborative reasoning for interaction patterns
+8. **🧠 Reasoner**: Core reasoning engine providing services to all components
 2. **Framework Core**: Central coordination and management
 3. **Component Layer**: Eight specialized components for different aspects
 4. **Foundation Layer**: Supporting services and utilities
