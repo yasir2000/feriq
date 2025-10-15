@@ -8,12 +8,13 @@ Complete guide to using the Feriq command-line interface for managing collaborat
 2. [Getting Started](#getting-started)
 3. [Project Management](#project-management)
 4. [Agent Management](#agent-management)
-5. [Goal Management](#goal-management)
-6. [Workflow Management](#workflow-management)
-7. [Model Management](#model-management)
-8. [Configuration](#configuration)
-9. [Advanced Usage](#advanced-usage)
-10. [Troubleshooting](#troubleshooting)
+5. [Role Management](#role-management)
+6. [Goal Management](#goal-management)
+7. [Workflow Management](#workflow-management)
+8. [Model Management](#model-management)
+9. [Configuration](#configuration)
+10. [Advanced Usage](#advanced-usage)
+11. [Troubleshooting](#troubleshooting)
 
 ## Installation and Setup
 
@@ -212,6 +213,125 @@ python -m feriq.cli.main agent run researcher --goal "research_market_trends"
 
 # Run with custom parameters
 python -m feriq.cli.main agent run researcher --goal custom_research --verbose
+```
+
+## Role Management
+
+The Feriq CLI provides comprehensive role management capabilities that integrate seamlessly with team and agent systems.
+
+### Creating Roles
+
+```bash
+# Create a basic role
+python -m feriq.cli.main role create "Software Developer" executor \
+  --description "Full-stack software development specialist"
+
+# Create role with capabilities and proficiency levels
+python -m feriq.cli.main role create "Data Scientist" analyst \
+  --description "Machine learning and data analysis specialist" \
+  --capabilities "python:0.9,machine_learning:0.8,statistics:0.7,sql:0.8" \
+  --responsibilities "Data analysis,Model development,Statistical analysis"
+
+# Create specialized role with constraints
+python -m feriq.cli.main role create "Security Engineer" specialist \
+  --description "Cybersecurity and system security specialist" \
+  --capabilities "security:0.9,penetration_testing:0.8,compliance:0.7" \
+  --responsibilities "Security audits,Vulnerability assessment,Policy development" \
+  --constraints "Security clearance required,No remote access"
+```
+
+### Listing and Viewing Roles
+
+```bash
+# List all available roles
+python -m feriq.cli.main role list
+
+# List with detailed information
+python -m feriq.cli.main role list --detailed
+
+# List in different formats
+python -m feriq.cli.main role list --format json
+python -m feriq.cli.main role list --format yaml
+
+# Filter roles by capabilities
+python -m feriq.cli.main role list --filter "python"
+
+# Show detailed role information
+python -m feriq.cli.main role show "Software Developer"
+```
+
+### Role Assignment to Teams
+
+```bash
+# Create a team first
+python -m feriq.cli.main team create "Development Team" software_development \
+  --description "Frontend and backend development specialists"
+
+# Assign roles to team with specializations
+python -m feriq.cli.main role assign "role_software_developer.json" <team_id> \
+  --specialization "Lead Developer" --contribution 1.0
+
+python -m feriq.cli.main role assign "role_qa_engineer.json" <team_id> \
+  --specialization "Senior QA Engineer" --contribution 0.8
+
+# View team with assigned roles
+python -m feriq.cli.main list teams
+```
+
+### Role Management Workflow
+
+```bash
+# Complete workflow example
+# 1. Create specialized roles for a web development project
+python -m feriq.cli.main role create "Frontend Developer" executor \
+  --capabilities "react:0.9,javascript:0.8,css:0.8,html:0.9" \
+  --responsibilities "UI development,Component creation,Frontend testing"
+
+python -m feriq.cli.main role create "Backend Developer" executor \
+  --capabilities "python:0.9,django:0.8,postgresql:0.7,api_design:0.8" \
+  --responsibilities "API development,Database design,Backend testing"
+
+# 2. Create team
+python -m feriq.cli.main team create "Web Dev Team" software_development
+
+# 3. Get team ID and assign roles
+python -m feriq.cli.main list teams  # Note the team ID
+python -m feriq.cli.main role assign "role_frontend_developer.json" <team_id>
+python -m feriq.cli.main role assign "role_backend_developer.json" <team_id>
+
+# 4. Verify assignments
+python -m feriq.cli.main list teams  # Should show 2/10 members
+```
+
+### Role Types Available
+
+- **researcher** - Investigation and analysis focused roles
+- **analyst** - Data analysis and interpretation specialists  
+- **planner** - Strategic planning and coordination roles
+- **executor** - Implementation and development roles
+- **coordinator** - Team coordination and leadership roles
+- **reviewer** - Quality assurance and validation roles
+- **specialist** - Domain-specific expertise roles
+- **generalist** - Cross-functional capability roles
+
+### Role Templates
+
+```bash
+# List available role templates
+python -m feriq.cli.main role templates
+
+# Create role from template
+python -m feriq.cli.main role create "Custom Analyst" analyst --template "data_analyst"
+```
+
+### Unassigning Roles
+
+```bash
+# Remove role from team
+python -m feriq.cli.main role unassign "Frontend Developer" <team_id>
+
+# Verify removal
+python -m feriq.cli.main list teams  # Member count should decrease
 ```
 
 ## Goal Management

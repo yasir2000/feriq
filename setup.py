@@ -8,10 +8,10 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="feriq",
-    version="0.1.0",
+    version="1.1.0",
     author="Yasir Anwar",
     author_email="yasir2000@example.com",
-    description="Collaborative AI Agents Framework with Dynamic Role Planning",
+    description="Collaborative AI Agents Framework with Dynamic Role Planning and Management",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/yasir2000/feriq",

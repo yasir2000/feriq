@@ -2,13 +2,67 @@
 
 All notable changes to the Feriq Collaborative AI Agents Framework.
 
+## [1.1.0] - 2025-10-15
+
+### 🎭 Major Feature Addition - Role Management System
+
+#### ✅ Complete Role Management CLI
+- **Role Creation**: Create custom roles with capabilities, responsibilities, and constraints
+  - Support for 8 role types: researcher, analyst, planner, executor, coordinator, reviewer, specialist, generalist
+  - Capability definitions with proficiency levels (0.0-1.0)
+  - Flexible responsibility and constraint assignment
+  - Role tagging and categorization system
+- **Role Assignment**: Assign roles to teams with specializations and contribution levels
+  - Team-role integration with automatic member count updates
+  - Specialization support for role customization within teams
+  - Contribution level tracking for performance management
+- **Role Management Operations**: Complete CRUD operations for role lifecycle
+  - List roles with multiple format options (table, JSON, YAML)
+  - Show detailed role information with capability proficiency displays
+  - Filter roles by capabilities, types, or tags
+  - Remove role assignments from teams with automatic status updates
+
+#### 🔧 Enhanced CLI System
+- **6 New Commands**: Expanded CLI with comprehensive role management
+  - `feriq role create` - Create roles with full customization
+  - `feriq role list` - List and filter available roles
+  - `feriq role show` - Display detailed role information
+  - `feriq role assign` - Assign roles to teams
+  - `feriq role unassign` - Remove role assignments
+  - `feriq role templates` - List available role templates
+- **Team Integration**: Seamless integration with existing team management
+  - Automatic team status updates (forming ↔ active)
+  - Member count tracking with role assignments
+  - Team loading functionality for role assignment operations
+
+#### 📚 Documentation Updates
+- **Comprehensive Documentation**: Complete documentation for role management
+  - New role management guide with examples and best practices
+  - Updated README with role management features and examples
+  - Enhanced CLI guide with role management workflow
+  - Updated docs index with role management references
+- **Example Workflows**: Practical examples for role management integration
+  - Team creation and role assignment workflows
+  - Programming examples with role-team integration
+  - CLI demonstrations with complete scenarios
+
+#### 🏗️ Architecture Enhancements
+- **File System Integration**: Role persistence and loading system
+  - Role files stored in `outputs/roles/` directory
+  - Automatic team loading from `outputs/teams/` directory
+  - JSON-based role and team state management
+- **Error Handling**: Robust error handling with user-friendly messages
+  - Validation for role assignments and team operations
+  - Clear error messages for missing files or invalid operations
+  - Professional CLI output formatting with Rich console
+
 ## [1.0.0] - 2025-10-15
 
 ### 🎉 Initial Release - Complete Framework
 
 #### ✅ Core Framework Implementation
-- **8 Complete Components**: All framework components fully implemented and tested
-  - 🎭 Role Designer: Dynamic role creation and assignment system
+- **9 Complete Components**: All framework components fully implemented and tested
+  - 🎭 Role Designer: Dynamic role creation and assignment system with CLI management
   - 📋 Task Designer: Task breakdown and allocation with priority management
   - 📊 Plan Designer: Execution planning with reasoning integration
   - 👁️ Plan Observer: Real-time monitoring and alerting system
@@ -16,11 +70,12 @@ All notable changes to the Feriq Collaborative AI Agents Framework.
   - 🎼 Workflow Orchestrator: Complex workflow coordination
   - 💃 Choreographer: Agent interaction management and coordination
   - 🧠 Reasoner: Advanced reasoning engine with 10+ reasoning types
+  - 👥 Team Designer: Autonomous team collaboration and coordination system
 
 #### 🖥️ Comprehensive CLI System
-- **50+ Commands**: Complete command-line interface for all operations
-- **Component Listing**: Comprehensive output tracking for all 8 components
-  - List roles, tasks, plans, observations, agents, workflows, choreographies, reasoning
+- **66+ Commands**: Complete command-line interface for all operations
+- **Component Listing**: Comprehensive output tracking for all 9 components
+  - List roles, tasks, plans, observations, agents, workflows, choreographies, reasoning, teams
   - Multiple output formats: table, JSON, YAML
   - Flexible filtering by name, date, type, and content
   - Detailed and summary views with pagination

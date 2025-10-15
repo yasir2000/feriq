@@ -4,12 +4,12 @@
 
 <img width="526" height="290" alt="image" src="https://github.com/user-attachments/assets/3514c1f4-7570-44fe-aef9-64b214715d41" />
 
-Feriq is a comprehensive collaborative AI agents framework that enables intelligent multi-agent coordination, autonomous team collaboration, advanced reasoning, and sophisticated workflow orchestration. This is the first complete release featuring all **9 core components**, a powerful CLI system with **60+ commands**, **real LLM integration** with DeepSeek/Ollama, and **production-ready autonomous team management**.
+Feriq is a comprehensive collaborative AI agents framework that enables intelligent multi-agent coordination, autonomous team collaboration, advanced reasoning, and sophisticated workflow orchestration. This is the first complete release featuring all **9 core components**, a powerful CLI system with **66+ commands**, **real LLM integration** with DeepSeek/Ollama, and **production-ready autonomous team management**.
 
 ## 🌟 Major Features
 
 ### 🏗️ Complete 9-Component Framework
-- **🎭 Role Designer**: Dynamic role creation and assignment system
+- **🎭 Role Designer**: Dynamic role creation and assignment system with CLI management
 - **📋 Task Designer**: Intelligent task breakdown and allocation with team collaboration
 - **📊 Plan Designer**: Execution planning with AI reasoning integration
 - **👁️ Plan Observer**: Real-time monitoring and alerting system
@@ -17,7 +17,7 @@ Feriq is a comprehensive collaborative AI agents framework that enables intellig
 - **🎼 Workflow Orchestrator**: Complex workflow coordination
 - **💃 Choreographer**: Agent interaction management
 - **🧠 Reasoner**: Advanced reasoning engine with 10+ reasoning types
-- **👥 Team Designer**: **NEW** - Autonomous team collaboration and coordination system
+- **👥 Team Designer**: Autonomous team collaboration and coordination system
 
 ### 🤖 LLM-Powered Intelligence
 - **Real AI Integration**: **DeepSeek, Ollama, OpenAI, Azure OpenAI** support
@@ -34,8 +34,9 @@ Feriq is a comprehensive collaborative AI agents framework that enables intellig
 - **Collaborative Workflows**: Cross-functional collaboration between teams with different specializations
 - **Intelligent Task Distribution**: AI-powered task allocation based on team capabilities and availability
 
-### 🖥️ Comprehensive CLI System (60+ Commands)
+### 🖥️ Comprehensive CLI System (66+ Commands)
 - **👥 Team Management**: Complete team lifecycle with AI-powered creation and coordination
+- **🎭 Role Management**: Create, assign, and manage roles with capabilities and specializations
 - **📋 Component Listing**: List outputs from all 9 framework components with filtering
 - **🤖 LLM Integration**: Seamless integration with DeepSeek, Ollama, OpenAI, Azure OpenAI
 - **📁 Project Management**: Initialize, configure, and manage multi-agent projects
@@ -91,6 +92,34 @@ python -m feriq.cli.main list teams --discipline data_science
 
 # Analyze team performance
 python -m feriq.cli.main team performance
+```
+
+### Role Management and Assignment
+```bash
+# Create custom roles with capabilities
+python -m feriq.cli.main role create "Software Developer" executor \
+  --description "Full-stack software development specialist" \
+  --capabilities "python:0.9,javascript:0.8,sql:0.7,git:0.8" \
+  --responsibilities "Write code,Debug issues,Code review,Documentation"
+
+# Create specialized QA role
+python -m feriq.cli.main role create "QA Engineer" specialist \
+  --description "Quality assurance and testing specialist" \
+  --capabilities "testing:0.9,automation:0.8,bug_tracking:0.8" \
+  --responsibilities "Write test cases,Execute tests,Report bugs"
+
+# List all available roles
+python -m feriq.cli.main role list --detailed
+
+# Assign roles to teams with specialization
+python -m feriq.cli.main role assign "role_software_developer.json" <team_id> \
+  --specialization "Lead Developer" --contribution 1.0
+
+# Show detailed role information
+python -m feriq.cli.main role show "Software Developer"
+
+# Remove role assignments
+python -m feriq.cli.main role unassign "QA Engineer" <team_id>
 ```
 
 ### AI-Powered Problem Solving
@@ -152,13 +181,15 @@ python -m feriq.cli.main plan strategies
 ```python
 import asyncio
 from feriq.components.team_designer import TeamDesigner
+from feriq.components.role_designer import DynamicRoleDesigner
 from feriq.llm.deepseek_integration import DeepSeekIntegration
 
 # Initialize components
 team_designer = TeamDesigner()
+role_designer = DynamicRoleDesigner()
 ai = DeepSeekIntegration(model="deepseek-coder:latest")
 
-async def create_ai_powered_team():
+async def create_ai_powered_team_with_roles():
     # Define complex problem
     problem = """
     Build a real-time fraud detection system that can:
@@ -167,6 +198,21 @@ async def create_ai_powered_team():
     3. Integrate with banking systems
     4. Provide explainable AI decisions
     """
+    
+    # Create specialized roles first
+    dev_role = role_designer.create_role_from_template(
+        "software_developer",
+        name="Senior Software Developer",
+        specializations=["backend", "api_design", "microservices"],
+        proficiency_level=0.9
+    )
+    
+    ml_role = role_designer.create_role_from_template(
+        "data_scientist", 
+        name="ML Engineer",
+        specializations=["fraud_detection", "anomaly_detection", "real_time_ml"],
+        proficiency_level=0.85
+    )
     
     # AI analyzes problem and recommends teams
     analysis = await ai.analyze_problem_and_suggest_teams(problem)
@@ -180,6 +226,18 @@ async def create_ai_powered_team():
             capabilities=team_rec['key_roles']
         )
         
+        # Assign appropriate roles to teams
+        if team.discipline == "software_development":
+            team_designer.add_member_to_team(
+                team.id, dev_role.name, "Lead Developer",
+                dev_role.capabilities, contribution_level=1.0
+            )
+        elif team.discipline == "data_science":
+            team_designer.add_member_to_team(
+                team.id, ml_role.name, "Senior ML Engineer", 
+                ml_role.capabilities, contribution_level=1.0
+            )
+        
         # AI generates SMART goals for each team
         smart_goals = await ai.generate_smart_goals(problem, team.discipline)
         
@@ -192,13 +250,13 @@ async def create_ai_powered_team():
             )
             team_designer.assign_goal_to_team(goal.id, team.id)
     
-    # Run autonomous problem solving
+    # Run autonomous problem solving with role-based assignments
     for team in team_designer.get_all_teams():
         result = team_designer.simulate_autonomous_problem_solving(team.id, problem)
-        print(f"Team {team.name}: {len(result['extracted_goals'])} goals, {len(result['task_breakdown'])} tasks")
+        print(f"Team {team.name}: {len(team.members)} members, {len(result['extracted_goals'])} goals")
 
 # Run the example
-asyncio.run(create_ai_powered_team())
+asyncio.run(create_ai_powered_team_with_roles())
 ```
 
 ### Multi-Agent Framework Integration
@@ -308,6 +366,14 @@ python reasoning_team_integration.py
 - `feriq team performance` - Analyze team performance metrics
 - `feriq list teams [--discipline] [--detailed]` - List teams with filtering
 
+### 🎭 Role Management Commands
+- `feriq role create <name> <type> [options]` - Create roles with capabilities and responsibilities
+- `feriq role list [--format json|yaml|table] [--filter] [--detailed]` - List all available roles
+- `feriq role show <name>` - Show detailed role information with capabilities
+- `feriq role assign <role_file> <team_id> [options]` - Assign roles to teams with specialization
+- `feriq role unassign <role_name> <team_id>` - Remove role assignments from teams
+- `feriq role templates` - List available role templates for quick creation
+
 ### 📋 Component Listing Commands  
 - `feriq list components [--detailed]` - Overview of all 9 framework components
 - `feriq list roles [--format json|yaml|table]` - List role designer outputs
@@ -346,8 +412,8 @@ The Feriq framework features a sophisticated architecture with **9 core componen
 │ 👁️ Plan Observer    │ 🎯 Agent System     │ 🎼 Orchestrator   │
 │ 💃 Choreographer    │ 🧠 Reasoner         │ 👥 Team Designer  │
 ├─────────────────────────────────────────────────────────────┤
-│              📋 Comprehensive CLI System (60+ Commands)      │
-│    🖥️ Component Mgmt  │  🧠 AI Planning  │  👥 Team Mgmt     │
+│              📋 Comprehensive CLI System (66+ Commands)      │
+│  🖥️ Component Mgmt │ 🧠 AI Planning │ 👥 Team Mgmt │ 🎭 Role Mgmt │
 ├─────────────────────────────────────────────────────────────┤
 │                    🤖 LLM Integration Layer                  │
 │    🔥 DeepSeek  │  🦙 Ollama  │  🤖 OpenAI  │  ☁️ Azure      │
