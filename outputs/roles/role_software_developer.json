@@ -1,0 +1,37 @@
+{
+  "name": "Software Developer",
+  "role_type": "executor",
+  "description": "Full-stack software development specialist",
+  "capabilities": [
+    {
+      "name": "python",
+      "description": "Capability: python",
+      "proficiency_level": 0.9
+    },
+    {
+      "name": "javascript",
+      "description": "Capability: javascript",
+      "proficiency_level": 0.8
+    },
+    {
+      "name": "sql",
+      "description": "Capability: sql",
+      "proficiency_level": 0.7
+    },
+    {
+      "name": "git",
+      "description": "Capability: git",
+      "proficiency_level": 0.8
+    }
+  ],
+  "responsibilities": [
+    "Write code",
+    "Debug issues",
+    "Code review",
+    "Documentation"
+  ],
+  "constraints": [],
+  "created_at": "2025-10-15T18:20:25.403161",
+  "version": "1.0",
+  "tags": []
+}

@@ -113,6 +113,87 @@ def add_member(team_id: str, role_id: str, role_name: str, specialization: str, 
         ))
 
 @team.command()
+@click.argument('team_id')
+@click.argument('role_name')
+@click.option('--specialization', '-s', help="Role specialization within the team")
+@click.option('--contribution', '-c', default=1.0, help="Contribution level (0.0-1.0)")
+def assign_role(team_id: str, role_name: str, specialization: str, contribution: float):
+    """Assign an existing role to a team."""
+    
+    import json
+    from pathlib import Path
+    
+    team_designer = TeamDesigner()
+    
+    try:
+        # Find the role file
+        role_path = Path("outputs/roles") / f"role_{role_name.lower().replace(' ', '_')}.json"
+        
+        if not role_path.exists():
+            # Try exact filename
+            role_path = Path("outputs/roles") / role_name
+            if not role_path.exists() and not role_name.endswith('.json'):
+                role_path = Path("outputs/roles") / f"{role_name}.json"
+        
+        if not role_path.exists():
+            console.print(Panel(
+                f"❌ Role not found: {role_name}\n"
+                f"Use 'feriq role list' to see available roles\n"
+                f"or 'feriq role create' to create a new role",
+                title="🚫 Role Not Found",
+                style="red"
+            ))
+            return
+        
+        # Load role data
+        with open(role_path, 'r') as f:
+            role_data = json.load(f)
+        
+        # Extract role information
+        actual_role_name = role_data['name']
+        capabilities = [cap['name'] for cap in role_data.get('capabilities', [])]
+        role_description = role_data.get('description', '')
+        
+        # Add member to team
+        success = team_designer.add_member_to_team(
+            team_id=team_id,
+            role_id=actual_role_name.lower().replace(' ', '_'),
+            role_name=actual_role_name,
+            specialization=specialization or role_description,
+            capabilities=capabilities,
+            contribution_level=contribution
+        )
+        
+        if success:
+            console.print(Panel(
+                f"✅ Assigned role to team successfully\n"
+                f"🎭 Role: {actual_role_name}\n"
+                f"👥 Team ID: {team_id}\n"
+                f"🎯 Specialization: {specialization or 'General'}\n"
+                f"📊 Contribution: {contribution:.1%}\n"
+                f"🛠️ Capabilities: {', '.join(capabilities[:3])}{'...' if len(capabilities) > 3 else ''}",
+                title="👥 Role Assignment Successful",
+                style="green"
+            ))
+        else:
+            console.print(Panel(
+                f"❌ Failed to assign role to team\n"
+                f"Possible reasons:\n"
+                f"• Team not found\n"
+                f"• Role already assigned to this team\n"
+                f"• Team at maximum capacity",
+                title="🚫 Assignment Failed",
+                style="red"
+            ))
+            
+    except Exception as e:
+        console.print(Panel(
+            f"❌ Error assigning role: {str(e)}",
+            title="🚫 Assignment Error",
+            style="red"
+        ))
+
+@team.command()
 @click.argument('title')
 @click.argument('description')
 @click.option('--priority', '-p', 

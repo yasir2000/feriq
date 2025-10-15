@@ -1,0 +1,31 @@
+{
+  "name": "QA Engineer",
+  "role_type": "specialist",
+  "description": "Quality assurance and testing specialist",
+  "capabilities": [
+    {
+      "name": "testing",
+      "description": "Capability: testing",
+      "proficiency_level": 0.9
+    },
+    {
+      "name": "automation",
+      "description": "Capability: automation",
+      "proficiency_level": 0.8
+    },
+    {
+      "name": "bug_tracking",
+      "description": "Capability: bug_tracking",
+      "proficiency_level": 0.8
+    }
+  ],
+  "responsibilities": [
+    "Write test cases",
+    "Execute tests",
+    "Report bugs"
+  ],
+  "constraints": [],
+  "created_at": "2025-10-15T18:34:15.606130",
+  "version": "1.0",
+  "tags": []
+}

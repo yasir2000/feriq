@@ -1,0 +1,40 @@
+{
+  "name": "Data Analyst",
+  "role_type": "analyst",
+  "description": "Specializes in data analysis and visualization",
+  "capabilities": [
+    {
+      "name": "data_analysis",
+      "description": "Capability: data_analysis",
+      "proficiency_level": 0.9
+    },
+    {
+      "name": "sql",
+      "description": "Capability: sql",
+      "proficiency_level": 0.8
+    },
+    {
+      "name": "python",
+      "description": "Capability: python",
+      "proficiency_level": 0.8
+    },
+    {
+      "name": "statistics",
+      "description": "Capability: statistics",
+      "proficiency_level": 0.7
+    }
+  ],
+  "responsibilities": [
+    "Analyze data",
+    "Create reports",
+    "Generate insights"
+  ],
+  "constraints": [],
+  "created_at": "2025-10-15T18:17:29.569492",
+  "version": "1.0",
+  "tags": [
+    "data",
+    "analytics",
+    "reporting"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "868575a4-6d76-43ff-b616-bc93d8b46e0b",
+  "name": "Development Team",
+  "description": "Full-stack development team",
+  "team_type": "autonomous",
+  "discipline": "software_development",
+  "members": [],
+  "goals": [],
+  "capabilities": [
+    "web_development",
+    "apis",
+    "databases",
+    "testing"
+  ],
+  "status": "forming",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.0,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.0
+  },
+  "created_at": "2025-10-15T18:20:44.408172",
+  "updated_at": "2025-10-15T18:20:44.408172"
+}

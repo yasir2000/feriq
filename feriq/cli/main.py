@@ -94,6 +94,13 @@ try:
 except ImportError:
     pass  # Team commands not available
 
+# Add role management commands
+try:
+    from feriq.cli.role_commands import role
+    cli.add_command(role)
+except ImportError:
+    pass  # Role commands not available
+
 
 @cli.command()
 @click.option('--output', '-o', type=click.Choice(['json', 'yaml', 'table']), default='table')
