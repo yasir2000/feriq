@@ -1,0 +1,32 @@
+{
+  "id": "da60bf27-01de-437f-8e38-e48360de65f5",
+  "name": "Test Team",
+  "description": "Team specialized in research",
+  "team_type": "specialist",
+  "discipline": "research",
+  "members": [],
+  "goals": [],
+  "capabilities": [
+    "analysis",
+    "research",
+    "documentation"
+  ],
+  "status": "forming",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.0,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.0
+  },
+  "created_at": "2025-10-15T15:14:25.592766",
+  "updated_at": "2025-10-15T15:14:25.592766"
+}

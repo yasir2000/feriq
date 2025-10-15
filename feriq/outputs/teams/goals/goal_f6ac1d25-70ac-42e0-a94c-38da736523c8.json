@@ -1,0 +1,15 @@
+{
+  "id": "f6ac1d25-70ac-42e0-a94c-38da736523c8",
+  "title": "Data exploration and preprocessing",
+  "description": "Explore, clean, and preprocess relevant data",
+  "priority": "high",
+  "complexity": 0.7,
+  "estimated_effort": 35,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "0e13ea5b-e9cb-4da9-b70d-5ceae5111614"
+  ],
+  "progress": 0.0
+}
