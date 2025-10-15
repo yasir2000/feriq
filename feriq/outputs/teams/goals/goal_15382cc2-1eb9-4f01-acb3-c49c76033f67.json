@@ -1,0 +1,15 @@
+{
+  "id": "15382cc2-1eb9-4f01-acb3-c49c76033f67",
+  "title": "Design solution approach",
+  "description": "Design comprehensive solution approach using software_development expertise",
+  "priority": "high",
+  "complexity": 0.8,
+  "estimated_effort": 40,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+  ],
+  "progress": 0.0
+}

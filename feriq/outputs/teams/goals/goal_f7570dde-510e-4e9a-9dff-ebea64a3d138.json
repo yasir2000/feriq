@@ -1,0 +1,15 @@
+{
+  "id": "f7570dde-510e-4e9a-9dff-ebea64a3d138",
+  "title": "Model development and validation",
+  "description": "Develop and validate predictive/analytical models",
+  "priority": "high",
+  "complexity": 0.8,
+  "estimated_effort": 45,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "f5980ec5-4f81-47c2-9aff-dc826726549f"
+  ],
+  "progress": 0.0
+}

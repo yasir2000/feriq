@@ -1,0 +1,15 @@
+{
+  "id": "779afb45-f51b-4473-8fff-90ff5471f4a9",
+  "title": "Goal 1: 1. Title - Develop a Real-Time Fraud Detection Sys...",
+  "description": "1. Title - Develop a Real-Time Fraud Detection System for Financial Services Company (H01).  \nDescription - The goal is to develop an efficient real-time fraud detection system that can process millions of transactions per second with sub-50ms latency, and use machine learning models to detect suspicious patterns in the data. This will significantly improve efficiency while minimizing false positives or negatives by ensuring high accuracy during transaction verification processes (HM1).  \nSuccess Criteria - The success criteria for this goal is achieved when we can identify fraudulent transactions within 50ms of their occurrence, and correctly flag them as such with a rate above 98% accurate. This will ensure the system's reliability in detecting potential threats to financial services company\u2019s operations (HM1).  \nEstimated effort - The estimated time for this task is around six months if we consider all dependencies on other teams and resources, including data scientists who may need additional tools or models used by our current team. This includes setting up the infrastructure required such as databases to store transactional information in real-time (H02).  \nPriority - High due it requires a significant amount of time for setup work that can't be done during regular development cycles, and also needs robust testing before going live with actual users or clients.  HM1: We will aim at achieving this goal by ensuring the accuracy rate in detecting fraudulent transactions within five seconds (H02).\n   \n    \n   Similarly for other goals as per your requirements can be developed based on these SMART principles and objectives set above, but remember to adjust them according to actual project timelines.  The team should also consider all stakeholders' needs during the development process such as regulatory compliance with AI decisions (H08), scalability across multiple data centers(sM3).",
+  "priority": "high",
+  "complexity": 0.6,
+  "estimated_effort": 40,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "f5980ec5-4f81-47c2-9aff-dc826726549f"
+  ],
+  "progress": 0.0
+}

@@ -1,0 +1,15 @@
+{
+  "id": "d411e0a6-afcf-42f2-90de-3eb456814391",
+  "title": "Goal 3: 2. Title - Implement Machine Learning Models in Fr...",
+  "description": "2. Title - Implement Machine Learning Models in Fraud Detection System H1: Develop and implement machine learning models to identify suspicious patterns for anomalies using supervised algorithms such as SVM or Random Forests, with a focus on handling concept drift \n    Description- The goal is the implementation of robust ML model that can learn from past data effectively detecting fraudulent activities. It should also be able handle contextual changes in new types and patterns (concept drifts) without causing significant disruption to operations or service quality, which requires a focus on handling concept drift \n    Success Criteria: A machine learning-based model that can learn from past data effectively detecting fraudulent activities is required. The system should be able handle contextual changes in new types and patterns (concept drifts) without causing significant disruption to operations or service quality, with a high accuracy rate of detection capabilities \n   Estimated Effort - Hours: ~30-45 depending on complexity & sophistication required by the ML model. The team should be capable enough in this timeframe for prototyping and testing different models before finalizing which can take up to an hour or more if not within a deadline\n    Priority : Medium due as it requires robustness of machine learning system, but also focus on handling concept drift",
+  "priority": "medium",
+  "complexity": 0.8,
+  "estimated_effort": 60,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "17758a20-68ae-4946-ad27-77ef26c26515"
+  ],
+  "progress": 0.0
+}

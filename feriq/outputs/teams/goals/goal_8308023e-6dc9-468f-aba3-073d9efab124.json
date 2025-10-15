@@ -1,0 +1,15 @@
+{
+  "id": "8308023e-6dc9-468f-aba3-073d9efab124",
+  "title": "Testing strategy",
+  "description": "Develop comprehensive testing strategy and implementation",
+  "priority": "medium",
+  "complexity": 0.6,
+  "estimated_effort": 30,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+  ],
+  "progress": 0.0
+}

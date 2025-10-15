@@ -1,0 +1,15 @@
+{
+  "id": "be6377a6-181a-4c6a-9180-5731bc91a402",
+  "title": "Code architecture design",
+  "description": "Design scalable and maintainable code architecture",
+  "priority": "high",
+  "complexity": 0.9,
+  "estimated_effort": 50,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+  ],
+  "progress": 0.0
+}

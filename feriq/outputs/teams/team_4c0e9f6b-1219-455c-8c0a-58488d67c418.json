@@ -1,0 +1,169 @@
+{
+  "id": "4c0e9f6b-1219-455c-8c0a-58488d67c418",
+  "name": "Software Development Team",
+  "description": "AI-recommended: Required for software development expertise",
+  "team_type": "autonomous",
+  "discipline": "software_development",
+  "members": [],
+  "goals": [
+    {
+      "id": "7ec086c7-a617-47f9-a226-7e71d27187dd",
+      "title": "Goal 1: 1. Title - Design a Real-time Fraud Detection Syst...",
+      "description": "1. Title - Design a Real-time Fraud Detection System for Financial Services Company (H0):\n   Description - The goal is to design an efficient real-time fraud detection system that can handle millions of transactions per second with sub-50ms latency and use machine learning models effectively in detecting suspicious patterns, anomalies. \n    Success Criteria: A robust model capable of identifying significant instances within a short time frame should be able to identify false positives or negatives at the same rate as real frauds occur over long periods (95% accuracy). The system must integrate seamlessly with existing banking systems and payment processors, provide explainable AI decisions for regulatory compliance.\n    Estimated Effort - 4-6 hours per priority level based on feasibility of design & implementation + time to refine the model if necessary + 2 weeks total development effort (H0: ~15~). Priority High as this is a critical component in financial services company's operations.\n    Scope and Resolution - The team will have 3-4 days per priority level of completion, with additional time reserved for refinement & testing the system under normal circumstances before deployment (H0: ~2 weeks~).",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "d1501996-ae35-4a77-9007-8514444122cb",
+      "title": "Goal 2: 2. Title - Implement Machine Learning Models to De...",
+      "description": "2. Title - Implement Machine Learning Models to Detect Suspicious Patterns and Anomalies(M1): \n    Description- The goal is implementing machine learning models that can accurately detect suspicious patterns, anomalies within a short time frame (sub50ms latency). This will significantly improve the accuracy of fraud detection.   Success Criteria - A model capable of identifying significant instances with high precision and recall rates should be able to identify false positives or negatives at similar speeds as real transactions occur over long periods, achieving 98%+ in terms of true positive rate (TPR) within a short time frame(~10 minutes).\n    Estimated Effort - ~2-4 hours per priority level based on feasibility and refinement + additional week for testing under normal circumstances. Priority Medium as it is an integral part to the system's functionality, but requires more resources than H0 (Higher effort required due to time constraints).\n    Scope & Resolution - The team will have 3-4 days per priority level of completion and additional week for testing under normal circumstances.",
+      "priority": "high",
+      "complexity": 0.7,
+      "estimated_effort": 50,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "b2aa2c22-65e2-4b8d-9856-e5727e49c905",
+      "title": "Goal 3: 3. Title: Integrate with Existing Banking Systems,...",
+      "description": "3. Title: Integrate with Existing Banking Systems, Payment Processors (M2):\n       Description : To achieve this goal we need to integrate the system seamlessly into existing banking systems & payment processors within 1-4 weeks or less time frame based on feasibility and testing done so far by team.   Success Criteria - The integration should be smooth, fast with sub50ms latency (~2 hours per priority level), ensuring a consistent",
+      "priority": "medium",
+      "complexity": 0.8,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "dc397d08-f567-4e91-b4a4-30231e143a8d",
+      "title": "Analyze \n    Design and implement a re...",
+      "description": "Conduct thorough analysis of the problem: \n    Design and implement a real-time fraud detection system for a financial services company that can:\n    \n    1. Process millions of transactions per second with sub-50ms latency\n    2. Use machine learning models to detect suspicious patterns and anomalies\n    3. Integrate with existing banking systems and payment processors\n    4. Provide explainable AI decisions for regulatory compliance\n    5. Scale horizontally across multiple data centers\n    6. Handle concept drift and adapt to new fraud patterns\n    7. Maintain 99.99% uptime with zero data loss\n    8. Support real-time dashboards and alerting for fraud analysts\n    ",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 20,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "15382cc2-1eb9-4f01-acb3-c49c76033f67",
+      "title": "Design solution approach",
+      "description": "Design comprehensive solution approach using software_development expertise",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "40a9bcee-3e99-473e-b2e1-b1d075b41035",
+      "title": "Implement solution",
+      "description": "Execute the designed solution with team coordination",
+      "priority": "medium",
+      "complexity": 0.7,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "34c1310f-4509-448b-8517-c8f96b7b0ded",
+      "title": "Validate and refine",
+      "description": "Test, validate, and refine the solution based on results",
+      "priority": "medium",
+      "complexity": 0.5,
+      "estimated_effort": 30,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "be6377a6-181a-4c6a-9180-5731bc91a402",
+      "title": "Code architecture design",
+      "description": "Design scalable and maintainable code architecture",
+      "priority": "high",
+      "complexity": 0.9,
+      "estimated_effort": 50,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "8308023e-6dc9-468f-aba3-073d9efab124",
+      "title": "Testing strategy",
+      "description": "Develop comprehensive testing strategy and implementation",
+      "priority": "medium",
+      "complexity": 0.6,
+      "estimated_effort": 30,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+      ],
+      "progress": 0.0
+    }
+  ],
+  "capabilities": [
+    "software_development",
+    "coordinator",
+    "specialist"
+  ],
+  "status": "forming",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.09600000000000002,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.175,
+    "overall_performance": 0.06775
+  },
+  "created_at": "2025-10-15T15:50:01.794046",
+  "updated_at": "2025-10-15T15:50:52.303124"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "d1501996-ae35-4a77-9007-8514444122cb",
+  "title": "Goal 2: 2. Title - Implement Machine Learning Models to De...",
+  "description": "2. Title - Implement Machine Learning Models to Detect Suspicious Patterns and Anomalies(M1): \n    Description- The goal is implementing machine learning models that can accurately detect suspicious patterns, anomalies within a short time frame (sub50ms latency). This will significantly improve the accuracy of fraud detection.   Success Criteria - A model capable of identifying significant instances with high precision and recall rates should be able to identify false positives or negatives at similar speeds as real transactions occur over long periods, achieving 98%+ in terms of true positive rate (TPR) within a short time frame(~10 minutes).\n    Estimated Effort - ~2-4 hours per priority level based on feasibility and refinement + additional week for testing under normal circumstances. Priority Medium as it is an integral part to the system's functionality, but requires more resources than H0 (Higher effort required due to time constraints).\n    Scope & Resolution - The team will have 3-4 days per priority level of completion and additional week for testing under normal circumstances.",
+  "priority": "high",
+  "complexity": 0.7,
+  "estimated_effort": 50,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+  ],
+  "progress": 0.0
+}

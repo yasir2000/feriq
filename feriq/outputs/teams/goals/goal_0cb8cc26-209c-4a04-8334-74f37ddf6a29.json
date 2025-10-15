@@ -1,0 +1,15 @@
+{
+  "id": "0cb8cc26-209c-4a04-8334-74f37ddf6a29",
+  "title": "Goal 2: - Develop a Real-Time Fraud Detection System for F...",
+  "description": "- Develop a Real-Time Fraud Detection System for Financial Services Company (H01).",
+  "priority": "high",
+  "complexity": 0.7,
+  "estimated_effort": 50,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "f5980ec5-4f81-47c2-9aff-dc826726549f"
+  ],
+  "progress": 0.0
+}

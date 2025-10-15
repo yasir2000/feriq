@@ -1,0 +1,15 @@
+{
+  "id": "7ec086c7-a617-47f9-a226-7e71d27187dd",
+  "title": "Goal 1: 1. Title - Design a Real-time Fraud Detection Syst...",
+  "description": "1. Title - Design a Real-time Fraud Detection System for Financial Services Company (H0):\n   Description - The goal is to design an efficient real-time fraud detection system that can handle millions of transactions per second with sub-50ms latency and use machine learning models effectively in detecting suspicious patterns, anomalies. \n    Success Criteria: A robust model capable of identifying significant instances within a short time frame should be able to identify false positives or negatives at the same rate as real frauds occur over long periods (95% accuracy). The system must integrate seamlessly with existing banking systems and payment processors, provide explainable AI decisions for regulatory compliance.\n    Estimated Effort - 4-6 hours per priority level based on feasibility of design & implementation + time to refine the model if necessary + 2 weeks total development effort (H0: ~15~). Priority High as this is a critical component in financial services company's operations.\n    Scope and Resolution - The team will have 3-4 days per priority level of completion, with additional time reserved for refinement & testing the system under normal circumstances before deployment (H0: ~2 weeks~).",
+  "priority": "high",
+  "complexity": 0.6,
+  "estimated_effort": 40,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "4c0e9f6b-1219-455c-8c0a-58488d67c418"
+  ],
+  "progress": 0.0
+}

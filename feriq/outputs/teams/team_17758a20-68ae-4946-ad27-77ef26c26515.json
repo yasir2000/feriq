@@ -1,0 +1,169 @@
+{
+  "id": "17758a20-68ae-4946-ad27-77ef26c26515",
+  "name": "Data Science Team",
+  "description": "AI-recommended: Required for data science expertise",
+  "team_type": "autonomous",
+  "discipline": "data_science",
+  "members": [],
+  "goals": [
+    {
+      "id": "282305cd-4d25-4028-9fb6-63128b92a1a8",
+      "title": "Goal 1: 1. Title - Develop a Real-Time Fraud Detection Sys...",
+      "description": "1. Title - Develop a Real-Time Fraud Detection System for Financial Services Company (H0): Design the system to process millions of transactions per second with sub-50ms latency using machine learning models that can detect suspicious patterns in realtime anomalies and integrate it into existing banking systems, payment processesors\n   Description - The goal is to develop a robust fraud detection system capable at processing thousands or even millions of transaction records every seconds. This will be integrated within the financial services company's infrastructure for effective monitoring and prevention against potential threats like credit card fraud etc., \n    Success Criteria: An up-to-date, reliable machine learning model that can detect suspicious patterns in real time anomalies is required to ensure high accuracy of detection capabilities. The integration with existing banking systems should be seamless while the system must also provide explainable AI decisions for regulatory compliance and maintain a",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "c681ff89-1843-4484-82ea-b290eb4973dd",
+      "title": "Goal 2: 99. 99% Uptime (0 data loss).\n   Estimated Effort ...",
+      "description": "99. 99% Uptime (0 data loss).\n   Estimated Effort - Hours: ~15-24, Depends on complexity of ML model used & integration with existing systems; can be calculated as per the team's expertise level in machine learning models or system integrations and uptime requirements. \n    Priority : High due to its high importance for financial services company operations which includes detecting fraudulent activities early during transactions, minimizing losses etc., that require real-time response capability (H0).",
+      "priority": "high",
+      "complexity": 0.7,
+      "estimated_effort": 50,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "d411e0a6-afcf-42f2-90de-3eb456814391",
+      "title": "Goal 3: 2. Title - Implement Machine Learning Models in Fr...",
+      "description": "2. Title - Implement Machine Learning Models in Fraud Detection System H1: Develop and implement machine learning models to identify suspicious patterns for anomalies using supervised algorithms such as SVM or Random Forests, with a focus on handling concept drift \n    Description- The goal is the implementation of robust ML model that can learn from past data effectively detecting fraudulent activities. It should also be able handle contextual changes in new types and patterns (concept drifts) without causing significant disruption to operations or service quality, which requires a focus on handling concept drift \n    Success Criteria: A machine learning-based model that can learn from past data effectively detecting fraudulent activities is required. The system should be able handle contextual changes in new types and patterns (concept drifts) without causing significant disruption to operations or service quality, with a high accuracy rate of detection capabilities \n   Estimated Effort - Hours: ~30-45 depending on complexity & sophistication required by the ML model. The team should be capable enough in this timeframe for prototyping and testing different models before finalizing which can take up to an hour or more if not within a deadline\n    Priority : Medium due as it requires robustness of machine learning system, but also focus on handling concept drift",
+      "priority": "medium",
+      "complexity": 0.8,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "2d35461b-5614-402f-a489-b9ed3b63c55c",
+      "title": "Analyze \n    Design and implement a re...",
+      "description": "Conduct thorough analysis of the problem: \n    Design and implement a real-time fraud detection system for a financial services company that can:\n    \n    1. Process millions of transactions per second with sub-50ms latency\n    2. Use machine learning models to detect suspicious patterns and anomalies\n    3. Integrate with existing banking systems and payment processors\n    4. Provide explainable AI decisions for regulatory compliance\n    5. Scale horizontally across multiple data centers\n    6. Handle concept drift and adapt to new fraud patterns\n    7. Maintain 99.99% uptime with zero data loss\n    8. Support real-time dashboards and alerting for fraud analysts\n    ",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 20,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "7120c99e-a557-46ea-b22b-4a82c7bbdd26",
+      "title": "Design solution approach",
+      "description": "Design comprehensive solution approach using data_science expertise",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "bcdd1dd9-561e-4d03-881c-267342fa1408",
+      "title": "Implement solution",
+      "description": "Execute the designed solution with team coordination",
+      "priority": "medium",
+      "complexity": 0.7,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "9261e677-c908-4852-a96d-ac0f58291182",
+      "title": "Validate and refine",
+      "description": "Test, validate, and refine the solution based on results",
+      "priority": "medium",
+      "complexity": 0.5,
+      "estimated_effort": 30,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "1f51f166-481d-4c2d-8454-cfb7f2cb277d",
+      "title": "Data exploration and preprocessing",
+      "description": "Explore, clean, and preprocess relevant data",
+      "priority": "high",
+      "complexity": 0.7,
+      "estimated_effort": 35,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "b74ae2fa-c24f-43b8-adaa-6b70ea43ac1e",
+      "title": "Model development and validation",
+      "description": "Develop and validate predictive/analytical models",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 45,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "17758a20-68ae-4946-ad27-77ef26c26515"
+      ],
+      "progress": 0.0
+    }
+  ],
+  "capabilities": [
+    "data_science",
+    "coordinator",
+    "specialist"
+  ],
+  "status": "forming",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.09600000000000002,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.175,
+    "overall_performance": 0.06775
+  },
+  "created_at": "2025-10-15T15:48:41.693943",
+  "updated_at": "2025-10-15T15:50:52.298527"
+}

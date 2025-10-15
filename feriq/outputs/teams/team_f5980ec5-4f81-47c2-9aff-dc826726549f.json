@@ -1,0 +1,154 @@
+{
+  "id": "f5980ec5-4f81-47c2-9aff-dc826726549f",
+  "name": "Machine Learning Team",
+  "description": "AI-recommended: Required for machine learning expertise",
+  "team_type": "autonomous",
+  "discipline": "data_science",
+  "members": [],
+  "goals": [
+    {
+      "id": "779afb45-f51b-4473-8fff-90ff5471f4a9",
+      "title": "Goal 1: 1. Title - Develop a Real-Time Fraud Detection Sys...",
+      "description": "1. Title - Develop a Real-Time Fraud Detection System for Financial Services Company (H01).  \nDescription - The goal is to develop an efficient real-time fraud detection system that can process millions of transactions per second with sub-50ms latency, and use machine learning models to detect suspicious patterns in the data. This will significantly improve efficiency while minimizing false positives or negatives by ensuring high accuracy during transaction verification processes (HM1).  \nSuccess Criteria - The success criteria for this goal is achieved when we can identify fraudulent transactions within 50ms of their occurrence, and correctly flag them as such with a rate above 98% accurate. This will ensure the system's reliability in detecting potential threats to financial services company\u2019s operations (HM1).  \nEstimated effort - The estimated time for this task is around six months if we consider all dependencies on other teams and resources, including data scientists who may need additional tools or models used by our current team. This includes setting up the infrastructure required such as databases to store transactional information in real-time (H02).  \nPriority - High due it requires a significant amount of time for setup work that can't be done during regular development cycles, and also needs robust testing before going live with actual users or clients.  HM1: We will aim at achieving this goal by ensuring the accuracy rate in detecting fraudulent transactions within five seconds (H02).\n   \n    \n   Similarly for other goals as per your requirements can be developed based on these SMART principles and objectives set above, but remember to adjust them according to actual project timelines.  The team should also consider all stakeholders' needs during the development process such as regulatory compliance with AI decisions (H08), scalability across multiple data centers(sM3).",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "0cb8cc26-209c-4a04-8334-74f37ddf6a29",
+      "title": "Goal 2: - Develop a Real-Time Fraud Detection System for F...",
+      "description": "- Develop a Real-Time Fraud Detection System for Financial Services Company (H01).",
+      "priority": "high",
+      "complexity": 0.7,
+      "estimated_effort": 50,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "b29f90ca-5c62-4982-9e92-3380951be9da",
+      "title": "Analyze \n    Design and implement a re...",
+      "description": "Conduct thorough analysis of the problem: \n    Design and implement a real-time fraud detection system for a financial services company that can:\n    \n    1. Process millions of transactions per second with sub-50ms latency\n    2. Use machine learning models to detect suspicious patterns and anomalies\n    3. Integrate with existing banking systems and payment processors\n    4. Provide explainable AI decisions for regulatory compliance\n    5. Scale horizontally across multiple data centers\n    6. Handle concept drift and adapt to new fraud patterns\n    7. Maintain 99.99% uptime with zero data loss\n    8. Support real-time dashboards and alerting for fraud analysts\n    ",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 20,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "946ab299-1f33-4bae-af67-24aa23614b9d",
+      "title": "Design solution approach",
+      "description": "Design comprehensive solution approach using data_science expertise",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "e3531b45-ea1f-4788-bb92-cccbf8c87001",
+      "title": "Implement solution",
+      "description": "Execute the designed solution with team coordination",
+      "priority": "medium",
+      "complexity": 0.7,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "6fe8ac34-e0a1-4179-a02d-288d5a78b6e2",
+      "title": "Validate and refine",
+      "description": "Test, validate, and refine the solution based on results",
+      "priority": "medium",
+      "complexity": 0.5,
+      "estimated_effort": 30,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "0560446a-461b-4546-a76c-899da686de3c",
+      "title": "Data exploration and preprocessing",
+      "description": "Explore, clean, and preprocess relevant data",
+      "priority": "high",
+      "complexity": 0.7,
+      "estimated_effort": 35,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "f7570dde-510e-4e9a-9dff-ebea64a3d138",
+      "title": "Model development and validation",
+      "description": "Develop and validate predictive/analytical models",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 45,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "f5980ec5-4f81-47c2-9aff-dc826726549f"
+      ],
+      "progress": 0.0
+    }
+  ],
+  "capabilities": [
+    "machine_learning",
+    "coordinator",
+    "specialist"
+  ],
+  "status": "forming",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.09600000000000002,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.175,
+    "overall_performance": 0.06775
+  },
+  "created_at": "2025-10-15T15:49:33.410963",
+  "updated_at": "2025-10-15T15:50:52.301125"
+}

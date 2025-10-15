@@ -1,0 +1,15 @@
+{
+  "id": "c681ff89-1843-4484-82ea-b290eb4973dd",
+  "title": "Goal 2: 99. 99% Uptime (0 data loss).\n   Estimated Effort ...",
+  "description": "99. 99% Uptime (0 data loss).\n   Estimated Effort - Hours: ~15-24, Depends on complexity of ML model used & integration with existing systems; can be calculated as per the team's expertise level in machine learning models or system integrations and uptime requirements. \n    Priority : High due to its high importance for financial services company operations which includes detecting fraudulent activities early during transactions, minimizing losses etc., that require real-time response capability (H0).",
+  "priority": "high",
+  "complexity": 0.7,
+  "estimated_effort": 50,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "17758a20-68ae-4946-ad27-77ef26c26515"
+  ],
+  "progress": 0.0
+}

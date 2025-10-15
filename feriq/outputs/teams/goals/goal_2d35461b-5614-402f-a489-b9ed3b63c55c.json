@@ -1,0 +1,15 @@
+{
+  "id": "2d35461b-5614-402f-a489-b9ed3b63c55c",
+  "title": "Analyze \n    Design and implement a re...",
+  "description": "Conduct thorough analysis of the problem: \n    Design and implement a real-time fraud detection system for a financial services company that can:\n    \n    1. Process millions of transactions per second with sub-50ms latency\n    2. Use machine learning models to detect suspicious patterns and anomalies\n    3. Integrate with existing banking systems and payment processors\n    4. Provide explainable AI decisions for regulatory compliance\n    5. Scale horizontally across multiple data centers\n    6. Handle concept drift and adapt to new fraud patterns\n    7. Maintain 99.99% uptime with zero data loss\n    8. Support real-time dashboards and alerting for fraud analysts\n    ",
+  "priority": "high",
+  "complexity": 0.6,
+  "estimated_effort": 20,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "17758a20-68ae-4946-ad27-77ef26c26515"
+  ],
+  "progress": 0.0
+}

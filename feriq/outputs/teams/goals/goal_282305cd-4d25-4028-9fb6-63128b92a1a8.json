@@ -1,0 +1,15 @@
+{
+  "id": "282305cd-4d25-4028-9fb6-63128b92a1a8",
+  "title": "Goal 1: 1. Title - Develop a Real-Time Fraud Detection Sys...",
+  "description": "1. Title - Develop a Real-Time Fraud Detection System for Financial Services Company (H0): Design the system to process millions of transactions per second with sub-50ms latency using machine learning models that can detect suspicious patterns in realtime anomalies and integrate it into existing banking systems, payment processesors\n   Description - The goal is to develop a robust fraud detection system capable at processing thousands or even millions of transaction records every seconds. This will be integrated within the financial services company's infrastructure for effective monitoring and prevention against potential threats like credit card fraud etc., \n    Success Criteria: An up-to-date, reliable machine learning model that can detect suspicious patterns in real time anomalies is required to ensure high accuracy of detection capabilities. The integration with existing banking systems should be seamless while the system must also provide explainable AI decisions for regulatory compliance and maintain a",
+  "priority": "high",
+  "complexity": 0.6,
+  "estimated_effort": 40,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "17758a20-68ae-4946-ad27-77ef26c26515"
+  ],
+  "progress": 0.0
+}
