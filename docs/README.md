@@ -13,6 +13,7 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 - **[CLI Listing Guide](cli_listing_guide.md)** - Complete guide to CLI listing capabilities
 - **[CLI User Guide](cli_guide.md)** - Comprehensive CLI command reference
 - **[Model Integration Guide](models.md)** - LLM model setup and configuration
+- **[LLM Integration Guide](llm_integration.md)** - **🔥 NEW** - DeepSeek, Ollama, OpenAI integration
 
 ## 🏗️ Architecture & Design
 
@@ -30,6 +31,7 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 - **[Workflow Orchestrator](components/orchestrator.md)** - 🎼 Workflow coordination
 - **[Choreographer](components/choreographer.md)** - 💃 Agent interaction management
 - **[Reasoner](components/reasoner.md)** - 🧠 Advanced reasoning engine
+- **[Team Designer](team_designer_guide.md)** - **🔥 NEW** - 👥 Autonomous team collaboration and AI coordination
 
 ## 🧠 Reasoning & Intelligence
 
