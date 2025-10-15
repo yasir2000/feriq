@@ -1,0 +1,139 @@
+{
+  "id": "7d007c03-8c18-42f5-aab8-a13ee4e22dcf",
+  "name": "AI Research Team",
+  "description": "Demo team for data_science",
+  "team_type": "autonomous",
+  "discipline": "data_science",
+  "members": [],
+  "goals": [
+    {
+      "id": "44e660f2-6249-4386-8111-ff7c8a33d576",
+      "title": "Build AI-Powered Application",
+      "description": "Create an intelligent application using machine learning",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "e3bc9e38-e29d-4c89-bfe9-edfda5898165",
+      "title": "Analyze Design and develop an AI-power...",
+      "description": "Conduct thorough analysis of the problem: Design and develop an AI-powered mobile application that helps users manage their daily tasks with intelligent recommendations and natural language processing capabilities.",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 20,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "34997ab5-0d10-49e5-8e4f-1a93599543d7",
+      "title": "Design solution approach",
+      "description": "Design comprehensive solution approach using data_science expertise",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "fe7499e6-932e-44f8-b39d-d977f0508435",
+      "title": "Implement solution",
+      "description": "Execute the designed solution with team coordination",
+      "priority": "medium",
+      "complexity": 0.7,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "c6b020b7-acbb-4c1c-bc55-82f6aaddff18",
+      "title": "Validate and refine",
+      "description": "Test, validate, and refine the solution based on results",
+      "priority": "medium",
+      "complexity": 0.5,
+      "estimated_effort": 30,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "8886ef14-28fe-4b47-87bc-2d22ab36daa2",
+      "title": "Data exploration and preprocessing",
+      "description": "Explore, clean, and preprocess relevant data",
+      "priority": "high",
+      "complexity": 0.7,
+      "estimated_effort": 35,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "c3e01985-7dff-4d90-9451-e44ab46a46da",
+      "title": "Model development and validation",
+      "description": "Develop and validate predictive/analytical models",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 45,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+      ],
+      "progress": 0.0
+    }
+  ],
+  "capabilities": [
+    "machine_learning",
+    "data_analysis",
+    "research"
+  ],
+  "status": "collaborating",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.09600000000000002,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.175,
+    "overall_performance": 0.06775
+  },
+  "created_at": "2025-10-15T14:49:01.430138",
+  "updated_at": "2025-10-15T14:49:01.516131"
+}

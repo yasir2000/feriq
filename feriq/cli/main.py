@@ -87,6 +87,13 @@ try:
 except ImportError:
     pass  # List commands not available
 
+# Add team management commands
+try:
+    from feriq.cli.team_commands import team
+    cli.add_command(team)
+except ImportError:
+    pass  # Team commands not available
+
 
 @cli.command()
 @click.option('--output', '-o', type=click.Choice(['json', 'yaml', 'table']), default='table')

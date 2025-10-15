@@ -1,0 +1,15 @@
+{
+  "id": "44e660f2-6249-4386-8111-ff7c8a33d576",
+  "title": "Build AI-Powered Application",
+  "description": "Create an intelligent application using machine learning",
+  "priority": "high",
+  "complexity": 0.8,
+  "estimated_effort": 60,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+  ],
+  "progress": 0.0
+}

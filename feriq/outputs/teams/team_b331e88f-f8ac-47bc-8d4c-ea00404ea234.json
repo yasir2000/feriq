@@ -1,0 +1,49 @@
+{
+  "id": "b331e88f-f8ac-47bc-8d4c-ea00404ea234",
+  "name": "Design Team",
+  "description": "Demo team for design",
+  "team_type": "specialist",
+  "discipline": "design",
+  "members": [],
+  "goals": [
+    {
+      "id": "ac34a46a-ec21-4d6e-a3a2-6218946266fa",
+      "title": "System Architecture Design",
+      "description": "Design scalable system architecture",
+      "priority": "high",
+      "complexity": 0.7,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b331e88f-f8ac-47bc-8d4c-ea00404ea234"
+      ],
+      "progress": 0.0
+    }
+  ],
+  "capabilities": [
+    "ui_design",
+    "ux_research",
+    "prototyping"
+  ],
+  "status": "collaborating",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.09600000000000002,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.13999999999999999,
+    "overall_performance": 0.059
+  },
+  "created_at": "2025-10-15T14:49:01.438646",
+  "updated_at": "2025-10-15T14:49:01.519626"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "c6b020b7-acbb-4c1c-bc55-82f6aaddff18",
+  "title": "Validate and refine",
+  "description": "Test, validate, and refine the solution based on results",
+  "priority": "medium",
+  "complexity": 0.5,
+  "estimated_effort": 30,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+  ],
+  "progress": 0.0
+}

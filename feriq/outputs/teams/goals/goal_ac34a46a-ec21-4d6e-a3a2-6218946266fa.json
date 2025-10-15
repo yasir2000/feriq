@@ -1,0 +1,15 @@
+{
+  "id": "ac34a46a-ec21-4d6e-a3a2-6218946266fa",
+  "title": "System Architecture Design",
+  "description": "Design scalable system architecture",
+  "priority": "high",
+  "complexity": 0.7,
+  "estimated_effort": 60,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "b331e88f-f8ac-47bc-8d4c-ea00404ea234"
+  ],
+  "progress": 0.0
+}

@@ -1,0 +1,15 @@
+{
+  "id": "34997ab5-0d10-49e5-8e4f-1a93599543d7",
+  "title": "Design solution approach",
+  "description": "Design comprehensive solution approach using data_science expertise",
+  "priority": "high",
+  "complexity": 0.8,
+  "estimated_effort": 40,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+  ],
+  "progress": 0.0
+}

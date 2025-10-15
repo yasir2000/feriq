@@ -1,0 +1,15 @@
+{
+  "id": "1199c482-0cc5-4bf0-825b-10d509c6f888",
+  "title": "User Experience Research",
+  "description": "Conduct comprehensive UX research for the application",
+  "priority": "medium",
+  "complexity": 0.6,
+  "estimated_effort": 60,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "b088f0e8-8f20-4211-98ed-d97981f79ba5"
+  ],
+  "progress": 0.0
+}

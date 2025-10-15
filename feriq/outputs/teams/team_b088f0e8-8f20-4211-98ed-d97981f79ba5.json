@@ -1,0 +1,49 @@
+{
+  "id": "b088f0e8-8f20-4211-98ed-d97981f79ba5",
+  "name": "Software Dev Team",
+  "description": "Demo team for software_development",
+  "team_type": "cross_functional",
+  "discipline": "software_development",
+  "members": [],
+  "goals": [
+    {
+      "id": "1199c482-0cc5-4bf0-825b-10d509c6f888",
+      "title": "User Experience Research",
+      "description": "Conduct comprehensive UX research for the application",
+      "priority": "medium",
+      "complexity": 0.6,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b088f0e8-8f20-4211-98ed-d97981f79ba5"
+      ],
+      "progress": 0.0
+    }
+  ],
+  "capabilities": [
+    "coding",
+    "testing",
+    "deployment"
+  ],
+  "status": "collaborating",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.09600000000000002,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.13999999999999999,
+    "overall_performance": 0.059
+  },
+  "created_at": "2025-10-15T14:49:01.434138",
+  "updated_at": "2025-10-15T14:49:01.519626"
+}

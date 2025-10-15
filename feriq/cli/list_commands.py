@@ -84,6 +84,13 @@ def list_components(detailed: bool):
             "description": "Advanced reasoning engine for decision-making, problem-solving, and strategic planning",
             "status": "✅ Available",
             "outputs": ["reasoning_results", "decision_trees", "strategic_recommendations", "problem_solutions"]
+        },
+        {
+            "emoji": "👥",
+            "name": "Team Designer",
+            "description": "Creates and manages collaborative teams with specialized disciplines and autonomous coordination",
+            "status": "✅ Available",
+            "outputs": ["team_definitions", "team_goals", "collaborations", "autonomous_solutions", "performance_metrics"]
         }
     ]
     
@@ -450,6 +457,158 @@ def list_reasoning(type: Optional[str], recent: int):
             priority = rec.get('priority', 'medium')
             recommendation = rec.get('recommendation', '')
             print(f"  • [{priority.upper()}] {recommendation}")
+
+
+@list_group.command('teams')
+@click.option('--discipline', '-d', help='Filter teams by discipline')
+@click.option('--status', '-s', 
+              type=click.Choice(['forming', 'active', 'collaborating', 'paused', 'completed', 'disbanded']),
+              help='Filter teams by status')
+@click.option('--detailed', '-v', is_flag=True, help='Show detailed team information')
+@click.option('--format', '-f', type=click.Choice(['table', 'json', 'yaml']), default='table',
+              help='Output format')
+def list_teams(discipline: Optional[str], status: Optional[str], detailed: bool, format: str):
+    """👥 List all teams with collaboration and performance information."""
+    
+    print_header("👥 Collaborative Teams")
+    
+    # Look for team files in outputs/teams directory
+    teams = []
+    outputs_dir = Path.cwd() / 'outputs' / 'teams'
+    
+    if outputs_dir.exists():
+        # Find all team JSON files
+        team_files = list(outputs_dir.glob('team_*.json'))
+        
+        for team_file in team_files:
+            try:
+                with open(team_file, 'r', encoding='utf-8') as f:
+                    team_data = json.load(f)
+                    teams.append(team_data)
+            except Exception as e:
+                print_error(f"Error reading {team_file.name}: {e}")
+    
+    # Also check feriq/outputs/teams directory
+    feriq_outputs_dir = Path.cwd() / 'feriq' / 'outputs' / 'teams'
+    if feriq_outputs_dir.exists():
+        team_files = list(feriq_outputs_dir.glob('team_*.json'))
+        
+        for team_file in team_files:
+            try:
+                with open(team_file, 'r', encoding='utf-8') as f:
+                    team_data = json.load(f)
+                    teams.append(team_data)
+            except Exception as e:
+                print_error(f"Error reading {team_file.name}: {e}")
+    
+    if not teams:
+        print_info("No teams found. Create teams using 'feriq team create'")
+        return
+    
+    # Apply filters
+    if discipline:
+        teams = [team for team in teams if team.get('discipline', '').lower() == discipline.lower()]
+    
+    if status:
+        teams = [team for team in teams if team.get('status', '').lower() == status.lower()]
+    
+    if not teams:
+        filter_desc = f" (filtered by {discipline or status})" if discipline or status else ""
+        print_info(f"No teams found{filter_desc}")
+        return
+    
+    # Output based on format
+    if format == 'json':
+        print(json.dumps(teams, indent=2, default=str))
+        return
+    elif format == 'yaml':
+        print(yaml.dump(teams, default_flow_style=False))
+        return
+    
+    # Table format
+    if detailed:
+        for team in teams:
+            print(f"\n👥 {team.get('name', 'Unknown Team')}")
+            print(f"   🏷️  ID: {team.get('id', 'N/A')}")
+            print(f"   🎯 Discipline: {team.get('discipline', 'N/A')}")
+            print(f"   📊 Type: {team.get('team_type', 'N/A')}")
+            print(f"   📈 Status: {team.get('status', 'N/A')}")
+            print(f"   👤 Members: {len(team.get('members', []))}/{team.get('max_size', 'N/A')}")
+            print(f"   🎯 Goals: {len(team.get('goals', []))}")
+            
+            capabilities = team.get('capabilities', [])
+            if capabilities:
+                cap_display = ', '.join(capabilities[:3])
+                if len(capabilities) > 3:
+                    cap_display += f" (+{len(capabilities)-3} more)"
+                print(f"   🛠️  Capabilities: {cap_display}")
+            
+            members = team.get('members', [])
+            if members:
+                print(f"   👥 Team Members:")
+                for member in members[:3]:
+                    specialization = member.get('specialization', 'N/A')
+                    availability = "✅" if member.get('availability', True) else "❌"
+                    print(f"      • {member.get('role_name', 'Unknown')} ({specialization}) {availability}")
+                if len(members) > 3:
+                    print(f"      • ... and {len(members)-3} more members")
+            
+            # Performance metrics if available
+            metrics = team.get('performance_metrics', {})
+            if metrics:
+                overall = metrics.get('overall_performance', 0)
+                if isinstance(overall, (int, float)):
+                    print(f"   📊 Performance: {overall:.1%}")
+    else:
+        # Simple table format
+        headers = ["Name", "Discipline", "Type", "Status", "Members", "Goals", "Performance"]
+        rows = []
+        
+        for team in teams:
+            members_count = f"{len(team.get('members', []))}/{team.get('max_size', '?')}"
+            goals_count = str(len(team.get('goals', [])))
+            
+            # Performance score
+            metrics = team.get('performance_metrics', {})
+            performance = metrics.get('overall_performance', 0)
+            if isinstance(performance, (int, float)):
+                perf_display = f"{performance:.1%}"
+            else:
+                perf_display = "N/A"
+            
+            rows.append([
+                team.get('name', 'Unknown')[:20],
+                team.get('discipline', 'N/A')[:15],
+                team.get('team_type', 'N/A')[:12],
+                team.get('status', 'N/A')[:12],
+                members_count,
+                goals_count,
+                perf_display
+            ])
+        
+        print_table(headers, rows)
+    
+    # Show summary statistics
+    if teams:
+        total_teams = len(teams)
+        active_teams = len([t for t in teams if t.get('status') == 'active'])
+        collaborating_teams = len([t for t in teams if t.get('status') == 'collaborating'])
+        total_members = sum(len(t.get('members', [])) for t in teams)
+        total_goals = sum(len(t.get('goals', [])) for t in teams)
+        
+        print(f"\n📊 Summary: {total_teams} teams ({active_teams} active, {collaborating_teams} collaborating)")
+        print(f"   👥 Total members: {total_members}")
+        print(f"   🎯 Total goals: {total_goals}")
+        
+        # Discipline distribution
+        disciplines = {}
+        for team in teams:
+            disc = team.get('discipline', 'Unknown')
+            disciplines[disc] = disciplines.get(disc, 0) + 1
+        
+        print(f"   🎯 Disciplines: {', '.join(f'{d}({c})' for d, c in disciplines.items())}")
+    
+    print(f"\n💡 Use 'feriq team list' for more team-specific filtering options")
 
 
 @list_group.command('actions')

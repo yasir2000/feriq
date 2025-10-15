@@ -1,0 +1,15 @@
+{
+  "id": "e3bc9e38-e29d-4c89-bfe9-edfda5898165",
+  "title": "Analyze Design and develop an AI-power...",
+  "description": "Conduct thorough analysis of the problem: Design and develop an AI-powered mobile application that helps users manage their daily tasks with intelligent recommendations and natural language processing capabilities.",
+  "priority": "high",
+  "complexity": 0.6,
+  "estimated_effort": 20,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "7d007c03-8c18-42f5-aab8-a13ee4e22dcf"
+  ],
+  "progress": 0.0
+}

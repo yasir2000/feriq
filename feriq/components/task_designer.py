@@ -1,4 +1,4 @@
-"""Task Designer component for creating and decomposing tasks."""
+"""Task Designer component for creating and decomposing tasks with team support."""
 
 from typing import Dict, List, Any, Optional, Tuple, Union
 from pydantic import BaseModel, Field
@@ -8,6 +8,26 @@ import uuid
 from ..core.task import FeriqTask, TaskType, TaskComplexity, TaskPriority, TaskDependency
 from ..core.goal import Goal, GoalType, GoalPriority
 from ..core.plan import Plan
+
+
+class TeamTaskAssignment(BaseModel):
+    """Assignment of tasks to teams"""
+    team_id: str = Field(..., description="Team ID")
+    team_name: str = Field(..., description="Team name")
+    assigned_tasks: List[str] = Field(default_factory=list, description="Task IDs assigned to team")
+    coordination_requirements: List[str] = Field(default_factory=list, description="Inter-team coordination needs")
+    estimated_effort: float = Field(default=0.0, description="Total estimated effort in hours")
+    parallel_execution: bool = Field(default=True, description="Can tasks be executed in parallel")
+
+
+class TaskCollaboration(BaseModel):
+    """Collaboration requirements between teams for task execution"""
+    collaboration_id: str = Field(default_factory=lambda: str(uuid.uuid4()), description="Collaboration ID")
+    participating_teams: List[str] = Field(..., description="Teams involved in collaboration")
+    shared_tasks: List[str] = Field(default_factory=list, description="Tasks requiring collaboration")
+    coordination_pattern: str = Field(default="sequential", description="How teams coordinate (sequential, parallel, hybrid)")
+    communication_frequency: str = Field(default="daily", description="Communication frequency")
+    synchronization_points: List[str] = Field(default_factory=list, description="Points where teams must synchronize")
 
 
 class TaskTemplate(BaseModel):
@@ -21,6 +41,8 @@ class TaskTemplate(BaseModel):
     instructions_template: str = Field(default="", description="Instructions template")
     validation_criteria: List[str] = Field(default_factory=list, description="Validation criteria")
     decomposition_pattern: Optional[str] = Field(default=None, description="How to decompose this task type")
+    team_suitability: List[str] = Field(default_factory=list, description="Which team types are suitable for this task")
+    collaboration_requirements: Dict[str, Any] = Field(default_factory=dict, description="Requirements for team collaboration")
 
 
 class DecompositionStrategy(BaseModel):
@@ -765,6 +787,952 @@ class TaskDesigner(BaseModel):
         
         return task
     
+    # Team-specific methods for collaborative task management
+    
+    def create_tasks_for_teams(self, 
+                              goal: Union[Goal, str], 
+                              teams: List[Dict[str, Any]], 
+                              context: Dict[str, Any] = None) -> Dict[str, Any]:
+        """
+        Create and assign tasks to multiple teams for collaborative execution.
+        
+        Args:
+            goal: Goal to accomplish
+            teams: List of team information (id, name, capabilities, discipline)
+            context: Additional context for task creation
+        
+        Returns:
+            Dictionary containing team assignments, collaborations, and execution plan
+        """
+        context = context or {}
+        
+        # Create tasks from goal
+        tasks = self.create_task_from_goal(goal, context)
+        
+        # Analyze tasks for team suitability
+        team_assignments = self._assign_tasks_to_teams(tasks, teams)
+        
+        # Identify collaboration requirements
+        collaborations = self._identify_task_collaborations(team_assignments, tasks)
+        
+        # Create execution coordination plan
+        coordination_plan = self._create_team_coordination_plan(team_assignments, collaborations)
+        
+        return {
+            "goal": goal.name if hasattr(goal, 'name') else str(goal),
+            "tasks": [task.dict() for task in tasks],
+            "team_assignments": [assignment.dict() for assignment in team_assignments],
+            "collaborations": [collab.dict() for collab in collaborations],
+            "coordination_plan": coordination_plan,
+            "estimated_completion_time": coordination_plan.get("total_time", 0),
+            "parallel_execution_opportunities": coordination_plan.get("parallel_tasks", []),
+            "critical_path": coordination_plan.get("critical_path", [])
+        }
+    
+    def create_cross_functional_tasks(self, 
+                                     problem_description: str, 
+                                     teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Create tasks that require cross-functional team collaboration.
+        
+        Args:
+            problem_description: Description of the problem to solve
+            teams: Available teams with their capabilities
+        
+        Returns:
+            Cross-functional task breakdown with collaboration requirements
+        """
+        
+        # Analyze problem for cross-functional requirements
+        cross_functional_needs = self._analyze_cross_functional_requirements(problem_description, teams)
+        
+        # Create tasks that leverage multiple team disciplines
+        cross_functional_tasks = []
+        
+        for need in cross_functional_needs:
+            task_data = self._create_cross_functional_task(need, teams)
+            
+            task = FeriqTask(
+                name=task_data["name"],
+                description=task_data["description"],
+                task_type=TaskType.COORDINATION,
+                complexity=TaskComplexity.COMPLEX,
+                required_capabilities=task_data["required_capabilities"],
+                estimated_duration=task_data["estimated_duration"],
+                collaboration_requirements=task_data["collaboration_requirements"]
+            )
+            
+            cross_functional_tasks.append(task)
+        
+        # Assign teams to tasks
+        team_assignments = self._assign_cross_functional_teams(cross_functional_tasks, teams)
+        
+        # Create collaboration framework
+        collaboration_framework = self._create_collaboration_framework(team_assignments)
+        
+        return {
+            "problem": problem_description,
+            "cross_functional_tasks": [task.dict() for task in cross_functional_tasks],
+            "team_assignments": team_assignments,
+            "collaboration_framework": collaboration_framework,
+            "success_metrics": self._define_cross_functional_success_metrics(cross_functional_tasks),
+            "communication_plan": self._create_team_communication_plan(team_assignments)
+        }
+    
+    def optimize_task_distribution(self, 
+                                  tasks: List[FeriqTask], 
+                                  teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """
+        Optimize task distribution across teams for maximum efficiency and collaboration.
+        
+        Args:
+            tasks: List of tasks to distribute
+            teams: Available teams
+        
+        Returns:
+            Optimized task distribution plan
+        """
+        
+        # Calculate team capabilities and workload capacity
+        team_analysis = self._analyze_team_capabilities(teams)
+        
+        # Optimize task assignments using multiple criteria
+        optimization_results = self._optimize_task_assignments(tasks, team_analysis)
+        
+        # Create load balancing recommendations
+        load_balancing = self._create_load_balancing_plan(optimization_results)
+        
+        # Identify bottlenecks and mitigation strategies
+        bottleneck_analysis = self._identify_task_bottlenecks(optimization_results)
+        
+        return {
+            "optimized_assignments": optimization_results["assignments"],
+            "efficiency_metrics": optimization_results["metrics"],
+            "load_balancing": load_balancing,
+            "bottleneck_analysis": bottleneck_analysis,
+            "recommendations": optimization_results["recommendations"],
+            "alternative_scenarios": optimization_results["alternatives"]
+        }
+    
+    def create_autonomous_task_workflow(self, 
+                                       teams: List[Dict[str, Any]], 
+                                       objectives: List[str]) -> Dict[str, Any]:
+        """
+        Create autonomous task workflows where teams can self-organize and adapt.
+        
+        Args:
+            teams: Teams that will participate in autonomous workflow
+            objectives: High-level objectives to achieve
+        
+        Returns:
+            Autonomous workflow structure with self-organization capabilities
+        """
+        
+        # Create adaptive task framework
+        adaptive_framework = self._create_adaptive_task_framework(teams, objectives)
+        
+        # Define autonomous decision-making rules
+        autonomy_rules = self._define_team_autonomy_rules(teams)
+        
+        # Create goal extraction mechanisms
+        goal_extraction = self._create_autonomous_goal_extraction(teams, objectives)
+        
+        # Set up inter-team coordination protocols
+        coordination_protocols = self._create_autonomous_coordination_protocols(teams)
+        
+        return {
+            "adaptive_framework": adaptive_framework,
+            "autonomy_rules": autonomy_rules,
+            "goal_extraction_mechanisms": goal_extraction,
+            "coordination_protocols": coordination_protocols,
+            "self_organization_guidelines": self._create_self_organization_guidelines(teams),
+            "adaptation_triggers": self._define_adaptation_triggers(objectives),
+            "performance_monitoring": self._create_autonomous_performance_monitoring(teams)
+        }
+    
+    # Private helper methods for team functionality
+    
+    def _assign_tasks_to_teams(self, tasks: List[FeriqTask], teams: List[Dict[str, Any]]) -> List[TeamTaskAssignment]:
+        """Assign tasks to teams based on capabilities and workload"""
+        assignments = []
+        
+        for team in teams:
+            team_assignment = TeamTaskAssignment(
+                team_id=team["id"],
+                team_name=team["name"]
+            )
+            
+            # Match tasks to team capabilities
+            for task in tasks:
+                capability_match = self._calculate_team_task_match(team, task)
+                
+                if capability_match > 0.6:  # Good match threshold
+                    team_assignment.assigned_tasks.append(task.id)
+                    team_assignment.estimated_effort += task.estimated_duration
+                    
+                    # Check if task requires coordination with other teams
+                    if task.complexity == TaskComplexity.COMPLEX:
+                        team_assignment.coordination_requirements.append(
+                            f"Coordinate with other teams for task: {task.name}"
+                        )
+            
+            # Determine if tasks can be executed in parallel
+            team_assignment.parallel_execution = self._can_execute_in_parallel(
+                [task for task in tasks if task.id in team_assignment.assigned_tasks]
+            )
+            
+            assignments.append(team_assignment)
+        
+        return assignments
+    
+    def _identify_task_collaborations(self, 
+                                    team_assignments: List[TeamTaskAssignment], 
+                                    tasks: List[FeriqTask]) -> List[TaskCollaboration]:
+        """Identify where teams need to collaborate on tasks"""
+        collaborations = []
+        
+        # Find tasks assigned to multiple teams
+        task_team_mapping = {}
+        for assignment in team_assignments:
+            for task_id in assignment.assigned_tasks:
+                if task_id not in task_team_mapping:
+                    task_team_mapping[task_id] = []
+                task_team_mapping[task_id].append(assignment.team_id)
+        
+        # Create collaborations for multi-team tasks
+        for task_id, team_ids in task_team_mapping.items():
+            if len(team_ids) > 1:
+                task = next((t for t in tasks if t.id == task_id), None)
+                if task:
+                    collaboration = TaskCollaboration(
+                        participating_teams=team_ids,
+                        shared_tasks=[task_id],
+                        coordination_pattern=self._determine_coordination_pattern(task),
+                        synchronization_points=self._identify_sync_points(task)
+                    )
+                    collaborations.append(collaboration)
+        
+        return collaborations
+    
+    def _create_team_coordination_plan(self, 
+                                     team_assignments: List[TeamTaskAssignment], 
+                                     collaborations: List[TaskCollaboration]) -> Dict[str, Any]:
+        """Create coordination plan for team task execution"""
+        
+        # Calculate total effort and timeline
+        total_effort = sum(assignment.estimated_effort for assignment in team_assignments)
+        max_team_effort = max((assignment.estimated_effort for assignment in team_assignments), default=0)
+        
+        # Identify parallel execution opportunities
+        parallel_tasks = []
+        for assignment in team_assignments:
+            if assignment.parallel_execution and len(assignment.assigned_tasks) > 1:
+                parallel_tasks.extend(assignment.assigned_tasks)
+        
+        # Create critical path
+        critical_path = self._calculate_critical_path(team_assignments, collaborations)
+        
+        # Estimate completion time
+        completion_time = max_team_effort if any(a.parallel_execution for a in team_assignments) else total_effort
+        
+        return {
+            "total_effort_hours": total_effort,
+            "estimated_completion_time": completion_time,
+            "parallel_tasks": parallel_tasks,
+            "critical_path": critical_path,
+            "coordination_meetings": len(collaborations) * 2,  # Pre and post coordination
+            "team_dependencies": self._identify_team_dependencies(team_assignments, collaborations),
+            "risk_factors": self._identify_coordination_risks(team_assignments, collaborations)
+        }
+    
+    def _analyze_cross_functional_requirements(self, 
+                                             problem_description: str, 
+                                             teams: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Analyze what cross-functional capabilities are needed"""
+        requirements = []
+        
+        # Extract keywords that indicate cross-functional needs
+        cross_functional_indicators = {
+            "integration": ["software_development", "design", "operations"],
+            "user_experience": ["design", "psychology", "data_science"],
+            "data_pipeline": ["data_science", "software_development", "operations"],
+            "market_analysis": ["marketing", "data_science", "research"],
+            "product_development": ["design", "software_development", "marketing", "research"]
+        }
+        
+        problem_lower = problem_description.lower()
+        
+        for indicator, required_disciplines in cross_functional_indicators.items():
+            if indicator in problem_lower:
+                available_teams = [team for team in teams 
+                                 if team.get("discipline", "").lower() in [d.lower() for d in required_disciplines]]
+                
+                if len(available_teams) >= 2:  # Need at least 2 teams for cross-functional work
+                    requirements.append({
+                        "type": indicator,
+                        "required_disciplines": required_disciplines,
+                        "available_teams": available_teams,
+                        "complexity": len(required_disciplines) * 0.2,
+                        "collaboration_intensity": "high" if len(required_disciplines) > 3 else "medium"
+                    })
+        
+        return requirements
+    
+    def _calculate_team_task_match(self, team: Dict[str, Any], task: FeriqTask) -> float:
+        """Calculate how well a team matches a task's requirements"""
+        team_capabilities = set(team.get("capabilities", []))
+        task_requirements = set(task.required_capabilities)
+        
+        if not task_requirements:
+            return 0.5  # Neutral match if no specific requirements
+        
+        overlap = team_capabilities & task_requirements
+        match_score = len(overlap) / len(task_requirements)
+        
+        # Bonus for discipline alignment
+        team_discipline = team.get("discipline", "").lower()
+        task_description = task.description.lower()
+        
+        if team_discipline and team_discipline in task_description:
+            match_score += 0.2
+        
+        return min(1.0, match_score)
+    
+    def _can_execute_in_parallel(self, tasks: List[FeriqTask]) -> bool:
+        """Determine if tasks can be executed in parallel"""
+        # Simple heuristic: tasks can be parallel if they don't have strong dependencies
+        # and are not all of the same critical type
+        
+        if len(tasks) <= 1:
+            return False
+        
+        # Check for explicit dependencies
+        for task in tasks:
+            if hasattr(task, 'dependencies') and task.dependencies:
+                return False
+        
+        # Check task types - some types work better in parallel
+        parallel_friendly_types = [TaskType.RESEARCH, TaskType.ANALYSIS, TaskType.PLANNING]
+        parallel_count = sum(1 for task in tasks if task.task_type in parallel_friendly_types)
+        
+        return parallel_count >= len(tasks) * 0.6  # 60% of tasks should be parallel-friendly
+    
+    def _determine_coordination_pattern(self, task: FeriqTask) -> str:
+        """Determine how teams should coordinate for a specific task"""
+        if task.task_type == TaskType.PLANNING:
+            return "sequential"  # Planning usually needs sequential input
+        elif task.task_type == TaskType.RESEARCH:
+            return "parallel"   # Research can often be done in parallel
+        elif task.complexity == TaskComplexity.COMPLEX:
+            return "hybrid"     # Complex tasks may need both patterns
+        else:
+            return "parallel"
+    
+    def _identify_sync_points(self, task: FeriqTask) -> List[str]:
+        """Identify synchronization points for collaborative tasks"""
+        sync_points = ["task_start", "task_completion"]
+        
+        if task.complexity in [TaskComplexity.COMPLEX, TaskComplexity.EXPERT]:
+            sync_points.extend([
+                "requirements_review",
+                "intermediate_review",
+                "quality_check"
+            ])
+        
+        if task.task_type == TaskType.COORDINATION:
+            sync_points.append("stakeholder_alignment")
+        
+        return sync_points
+    
+    def _calculate_critical_path(self, 
+                               team_assignments: List[TeamTaskAssignment], 
+                               collaborations: List[TaskCollaboration]) -> List[str]:
+        """Calculate the critical path for team task execution"""
+        # Simplified critical path calculation
+        critical_path = []
+        
+        # Find the team with the highest workload
+        max_effort_assignment = max(team_assignments, key=lambda x: x.estimated_effort, default=None)
+        
+        if max_effort_assignment:
+            critical_path.extend(max_effort_assignment.assigned_tasks)
+        
+        # Add collaboration dependencies
+        for collaboration in collaborations:
+            if collaboration.coordination_pattern == "sequential":
+                critical_path.extend(collaboration.shared_tasks)
+        
+        return critical_path
+    
+    def _identify_team_dependencies(self, 
+                                  team_assignments: List[TeamTaskAssignment], 
+                                  collaborations: List[TaskCollaboration]) -> List[Dict[str, Any]]:
+        """Identify dependencies between teams"""
+        dependencies = []
+        
+        for collaboration in collaborations:
+            for i, team_id in enumerate(collaboration.participating_teams):
+                for j, other_team_id in enumerate(collaboration.participating_teams):
+                    if i != j:
+                        dependencies.append({
+                            "dependent_team": team_id,
+                            "dependency_on": other_team_id,
+                            "type": "collaboration",
+                            "shared_tasks": collaboration.shared_tasks,
+                            "coordination_pattern": collaboration.coordination_pattern
+                        })
+        
+        return dependencies
+    
+    def _identify_coordination_risks(self, 
+                                   team_assignments: List[TeamTaskAssignment], 
+                                   collaborations: List[TaskCollaboration]) -> List[str]:
+        """Identify potential risks in team coordination"""
+        risks = []
+        
+        # Check for overloaded teams
+        avg_effort = sum(a.estimated_effort for a in team_assignments) / len(team_assignments) if team_assignments else 0
+        for assignment in team_assignments:
+            if assignment.estimated_effort > avg_effort * 1.5:
+                risks.append(f"Team {assignment.team_name} may be overloaded")
+        
+        # Check for complex collaborations
+        if len(collaborations) > len(team_assignments):
+            risks.append("High number of collaborations may create coordination overhead")
+        
+        # Check for sequential bottlenecks
+        sequential_collabs = [c for c in collaborations if c.coordination_pattern == "sequential"]
+        if len(sequential_collabs) > 2:
+            risks.append("Multiple sequential collaborations may create bottlenecks")
+        
+        return risks
+    
+    def _create_cross_functional_task(self, need: Dict[str, Any], teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create a cross-functional task based on identified needs"""
+        required_disciplines = need["required_disciplines"]
+        
+        return {
+            "name": f"Cross-functional {need['type']} task",
+            "description": f"Collaborative task requiring {', '.join(required_disciplines)} expertise",
+            "required_capabilities": [cap for team in need["available_teams"] 
+                                    for cap in team.get("capabilities", [])],
+            "estimated_duration": len(required_disciplines) * 10,  # 10 hours per discipline
+            "collaboration_requirements": {
+                "required_disciplines": required_disciplines,
+                "coordination_intensity": need["collaboration_intensity"],
+                "team_count": len(need["available_teams"])
+            }
+        }
+    
+    def _assign_cross_functional_teams(self, tasks: List[FeriqTask], teams: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Assign teams to cross-functional tasks"""
+        assignments = []
+        
+        for task in tasks:
+            if hasattr(task, 'collaboration_requirements'):
+                required_disciplines = task.collaboration_requirements.get("required_disciplines", [])
+                
+                # Find teams that match required disciplines
+                matching_teams = []
+                for discipline in required_disciplines:
+                    for team in teams:
+                        if team.get("discipline", "").lower() == discipline.lower():
+                            matching_teams.append(team)
+                            break
+                
+                assignments.append({
+                    "task_id": task.id,
+                    "task_name": task.name,
+                    "assigned_teams": matching_teams,
+                    "coordination_requirements": task.collaboration_requirements
+                })
+        
+        return assignments
+    
+    def _create_collaboration_framework(self, team_assignments: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create framework for cross-functional collaboration"""
+        return {
+            "communication_protocols": [
+                "Daily stand-ups between team leads",
+                "Weekly cross-functional reviews",
+                "Shared documentation workspace",
+                "Real-time collaboration tools"
+            ],
+            "decision_making_process": {
+                "individual_team_decisions": "autonomous within team scope",
+                "cross_team_decisions": "consensus between team leads",
+                "escalation_path": "project coordinator or senior stakeholder"
+            },
+            "knowledge_sharing": {
+                "documentation_standards": "shared templates and formats",
+                "knowledge_transfer_sessions": "bi-weekly cross-team sessions",
+                "expertise_sharing": "peer mentoring and skill exchange"
+            },
+            "conflict_resolution": {
+                "level_1": "direct team-to-team discussion",
+                "level_2": "facilitated mediation",
+                "level_3": "senior management escalation"
+            }
+        }
+    
+    def _define_cross_functional_success_metrics(self, tasks: List[FeriqTask]) -> Dict[str, Any]:
+        """Define success metrics for cross-functional work"""
+        return {
+            "collaboration_metrics": {
+                "communication_frequency": "number of inter-team communications per week",
+                "knowledge_sharing_events": "number of cross-team knowledge sessions",
+                "conflict_resolution_time": "average time to resolve cross-team conflicts"
+            },
+            "delivery_metrics": {
+                "task_completion_rate": "percentage of tasks completed on time",
+                "quality_metrics": "defect rate and rework percentage",
+                "stakeholder_satisfaction": "feedback from stakeholders on collaboration"
+            },
+            "innovation_metrics": {
+                "cross_pollination_ideas": "number of ideas generated through collaboration",
+                "process_improvements": "improvements suggested through cross-team work",
+                "capability_development": "new skills developed through collaboration"
+            }
+        }
+    
+    def _create_team_communication_plan(self, team_assignments: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create communication plan for teams"""
+        return {
+            "regular_meetings": {
+                "frequency": "daily",
+                "duration": "15 minutes",
+                "participants": "team leads + rotating team members",
+                "agenda": ["progress updates", "blockers", "coordination needs"]
+            },
+            "milestone_reviews": {
+                "frequency": "weekly",
+                "duration": "60 minutes",
+                "participants": "all team members",
+                "agenda": ["milestone progress", "quality review", "next week planning"]
+            },
+            "communication_channels": {
+                "synchronous": ["video calls", "in-person meetings"],
+                "asynchronous": ["shared documentation", "project management tools", "chat platforms"],
+                "escalation": ["direct manager contact", "project coordinator", "senior stakeholder"]
+            },
+            "documentation_requirements": {
+                "meeting_notes": "documented and shared within 24 hours",
+                "decision_log": "all cross-team decisions recorded",
+                "progress_reports": "weekly progress updates to all stakeholders"
+            }
+        }
+    
+    def _analyze_team_capabilities(self, teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Analyze team capabilities for optimization"""
+        analysis = {
+            "team_profiles": [],
+            "capability_matrix": {},
+            "capacity_analysis": {},
+            "specialization_areas": {}
+        }
+        
+        for team in teams:
+            # Team profile
+            profile = {
+                "team_id": team["id"],
+                "name": team["name"],
+                "discipline": team.get("discipline", "general"),
+                "capabilities": team.get("capabilities", []),
+                "capacity": team.get("capacity", 40),  # Default 40 hours/week
+                "efficiency_rating": team.get("efficiency", 0.8)
+            }
+            analysis["team_profiles"].append(profile)
+            
+            # Capability matrix
+            for capability in team.get("capabilities", []):
+                if capability not in analysis["capability_matrix"]:
+                    analysis["capability_matrix"][capability] = []
+                analysis["capability_matrix"][capability].append(team["id"])
+            
+            # Capacity analysis
+            analysis["capacity_analysis"][team["id"]] = {
+                "total_capacity": profile["capacity"],
+                "adjusted_capacity": profile["capacity"] * profile["efficiency_rating"],
+                "specialization": profile["discipline"]
+            }
+        
+        return analysis
+    
+    def _optimize_task_assignments(self, tasks: List[FeriqTask], team_analysis: Dict[str, Any]) -> Dict[str, Any]:
+        """Optimize task assignments using multiple criteria"""
+        assignments = {}
+        metrics = {}
+        recommendations = []
+        alternatives = []
+        
+        # Simple optimization algorithm
+        for task in tasks:
+            best_team = None
+            best_score = 0.0
+            
+            for team_profile in team_analysis["team_profiles"]:
+                score = self._calculate_assignment_score(task, team_profile, team_analysis)
+                
+                if score > best_score:
+                    best_score = score
+                    best_team = team_profile["team_id"]
+            
+            if best_team:
+                if best_team not in assignments:
+                    assignments[best_team] = []
+                assignments[best_team].append({
+                    "task_id": task.id,
+                    "task_name": task.name,
+                    "estimated_effort": task.estimated_duration,
+                    "assignment_score": best_score
+                })
+        
+        # Calculate metrics
+        total_effort = sum(task.estimated_duration for task in tasks)
+        team_workloads = {team_id: sum(task["estimated_effort"] for task in team_tasks) 
+                         for team_id, team_tasks in assignments.items()}
+        
+        metrics = {
+            "total_effort": total_effort,
+            "team_workloads": team_workloads,
+            "load_balance_score": self._calculate_load_balance_score(team_workloads, team_analysis),
+            "capability_utilization": self._calculate_capability_utilization(assignments, tasks, team_analysis)
+        }
+        
+        return {
+            "assignments": assignments,
+            "metrics": metrics,
+            "recommendations": recommendations,
+            "alternatives": alternatives
+        }
+    
+    def _calculate_assignment_score(self, task: FeriqTask, team_profile: Dict[str, Any], team_analysis: Dict[str, Any]) -> float:
+        """Calculate assignment score for task-team combination"""
+        score = 0.0
+        
+        # Capability match (40% weight)
+        team_capabilities = set(team_profile["capabilities"])
+        task_requirements = set(task.required_capabilities)
+        if task_requirements:
+            capability_match = len(team_capabilities & task_requirements) / len(task_requirements)
+            score += capability_match * 0.4
+        
+        # Efficiency factor (20% weight)
+        score += team_profile["efficiency_rating"] * 0.2
+        
+        # Workload balance (20% weight)
+        current_workload = team_analysis["capacity_analysis"][team_profile["team_id"]]["adjusted_capacity"]
+        if current_workload > 0:
+            workload_factor = min(1.0, (current_workload - task.estimated_duration) / current_workload)
+            score += workload_factor * 0.2
+        
+        # Discipline alignment (20% weight)
+        if team_profile["discipline"].lower() in task.description.lower():
+            score += 0.2
+        
+        return score
+    
+    def _calculate_load_balance_score(self, team_workloads: Dict[str, float], team_analysis: Dict[str, Any]) -> float:
+        """Calculate load balance score"""
+        if not team_workloads:
+            return 1.0
+        
+        workload_values = list(team_workloads.values())
+        avg_workload = sum(workload_values) / len(workload_values)
+        
+        if avg_workload == 0:
+            return 1.0
+        
+        variance = sum((workload - avg_workload) ** 2 for workload in workload_values) / len(workload_values)
+        coefficient_of_variation = (variance ** 0.5) / avg_workload
+        
+        # Lower coefficient of variation = better balance
+        return max(0.0, 1.0 - coefficient_of_variation)
+    
+    def _calculate_capability_utilization(self, assignments: Dict[str, List], tasks: List[FeriqTask], team_analysis: Dict[str, Any]) -> float:
+        """Calculate how well team capabilities are being utilized"""
+        total_capabilities = 0
+        utilized_capabilities = 0
+        
+        for team_id, team_tasks in assignments.items():
+            team_profile = next((tp for tp in team_analysis["team_profiles"] if tp["team_id"] == team_id), None)
+            if team_profile:
+                team_capabilities = set(team_profile["capabilities"])
+                total_capabilities += len(team_capabilities)
+                
+                # Check which capabilities are used
+                used_capabilities = set()
+                for task_info in team_tasks:
+                    task = next((t for t in tasks if t.id == task_info["task_id"]), None)
+                    if task:
+                        used_capabilities.update(task.required_capabilities)
+                
+                utilized_capabilities += len(team_capabilities & used_capabilities)
+        
+        return utilized_capabilities / total_capabilities if total_capabilities > 0 else 0.0
+    
+    def _create_load_balancing_plan(self, optimization_results: Dict[str, Any]) -> Dict[str, Any]:
+        """Create load balancing recommendations"""
+        assignments = optimization_results["assignments"]
+        metrics = optimization_results["metrics"]
+        
+        # Identify overloaded and underloaded teams
+        team_workloads = metrics["team_workloads"]
+        avg_workload = sum(team_workloads.values()) / len(team_workloads) if team_workloads else 0
+        
+        overloaded = {team_id: workload for team_id, workload in team_workloads.items() 
+                     if workload > avg_workload * 1.2}
+        underloaded = {team_id: workload for team_id, workload in team_workloads.items() 
+                      if workload < avg_workload * 0.8}
+        
+        recommendations = []
+        
+        # Suggest task redistribution
+        for overloaded_team, workload in overloaded.items():
+            for underloaded_team, under_workload in underloaded.items():
+                if len(assignments.get(overloaded_team, [])) > 1:
+                    recommendations.append({
+                        "action": "redistribute_task",
+                        "from_team": overloaded_team,
+                        "to_team": underloaded_team,
+                        "reason": f"Balance workload (from {workload:.1f}h to {under_workload:.1f}h)"
+                    })
+        
+        return {
+            "overloaded_teams": overloaded,
+            "underloaded_teams": underloaded,
+            "redistribution_recommendations": recommendations,
+            "load_balance_score": metrics.get("load_balance_score", 0.0)
+        }
+    
+    def _identify_task_bottlenecks(self, optimization_results: Dict[str, Any]) -> Dict[str, Any]:
+        """Identify potential bottlenecks in task execution"""
+        assignments = optimization_results["assignments"]
+        
+        bottlenecks = []
+        
+        # Check for teams with too many tasks
+        for team_id, team_tasks in assignments.items():
+            if len(team_tasks) > 5:  # Arbitrary threshold
+                bottlenecks.append({
+                    "type": "task_overload",
+                    "team_id": team_id,
+                    "task_count": len(team_tasks),
+                    "mitigation": "Consider task decomposition or team expansion"
+                })
+        
+        # Check for capability bottlenecks
+        capability_demand = {}
+        for team_tasks in assignments.values():
+            for task_info in team_tasks:
+                # Would need to access task details for capabilities
+                pass  # Simplified for now
+        
+        return {
+            "identified_bottlenecks": bottlenecks,
+            "mitigation_strategies": [
+                "Task decomposition for overloaded teams",
+                "Cross-training team members",
+                "Temporary team member reallocation",
+                "External resource acquisition"
+            ]
+        }
+    
+    def _create_adaptive_task_framework(self, teams: List[Dict[str, Any]], objectives: List[str]) -> Dict[str, Any]:
+        """Create framework for adaptive task management"""
+        return {
+            "adaptation_mechanisms": {
+                "goal_refinement": "Teams can refine objectives based on new information",
+                "task_reallocation": "Teams can redistribute tasks based on capacity and expertise",
+                "priority_adjustment": "Teams can adjust task priorities based on changing conditions",
+                "resource_reallocation": "Teams can share resources as needed"
+            },
+            "decision_authority": {
+                "individual_tasks": "full autonomy within team scope",
+                "inter_team_coordination": "collaborative decision making",
+                "objective_changes": "requires consensus across affected teams",
+                "resource_allocation": "team lead authority with transparency requirements"
+            },
+            "feedback_loops": {
+                "task_completion_feedback": "immediate feedback on task outcomes",
+                "objective_progress_feedback": "weekly objective progress reviews",
+                "team_performance_feedback": "bi-weekly team performance assessments",
+                "adaptation_effectiveness": "monthly adaptation strategy reviews"
+            }
+        }
+    
+    def _define_team_autonomy_rules(self, teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Define rules for team autonomous operation"""
+        return {
+            "decision_boundaries": {
+                "within_scope": [
+                    "task sequencing and scheduling",
+                    "internal resource allocation",
+                    "work methodology selection",
+                    "quality standards implementation"
+                ],
+                "requires_coordination": [
+                    "changes affecting other teams",
+                    "resource requests from other teams",
+                    "objective modifications",
+                    "timeline adjustments affecting dependencies"
+                ],
+                "requires_approval": [
+                    "major objective changes",
+                    "significant resource reallocation",
+                    "timeline extensions beyond threshold",
+                    "quality standard modifications"
+                ]
+            },
+            "communication_requirements": {
+                "status_updates": "daily to coordination system",
+                "decision_notifications": "immediate for decisions affecting other teams",
+                "request_responses": "within 24 hours for inter-team requests",
+                "escalation_timeline": "within 48 hours for unresolved conflicts"
+            },
+            "performance_accountability": {
+                "individual_metrics": "team-defined and tracked",
+                "collective_metrics": "shared across all teams",
+                "review_frequency": "weekly self-assessment, monthly peer review",
+                "improvement_actions": "team-driven with shared learning"
+            }
+        }
+    
+    def _create_autonomous_goal_extraction(self, teams: List[Dict[str, Any]], objectives: List[str]) -> Dict[str, Any]:
+        """Create mechanisms for autonomous goal extraction and refinement"""
+        return {
+            "extraction_methods": {
+                "objective_analysis": "teams analyze high-level objectives to extract specific goals",
+                "stakeholder_consultation": "teams engage with stakeholders to clarify objectives",
+                "domain_expertise": "teams apply their expertise to interpret objectives",
+                "collaborative_refinement": "teams work together to refine shared goals"
+            },
+            "refinement_processes": {
+                "iterative_refinement": "goals are refined through multiple iterations",
+                "feedback_integration": "stakeholder and peer feedback integrated into goal refinement",
+                "feasibility_assessment": "goals assessed for feasibility and adjusted accordingly",
+                "impact_analysis": "goals evaluated for impact on other teams and objectives"
+            },
+            "validation_mechanisms": {
+                "peer_review": "goals reviewed by other teams for consistency and feasibility",
+                "stakeholder_validation": "key stakeholders validate extracted goals",
+                "alignment_check": "goals checked for alignment with overall objectives",
+                "resource_validation": "goals validated against available resources"
+            }
+        }
+    
+    def _create_autonomous_coordination_protocols(self, teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create protocols for autonomous inter-team coordination"""
+        return {
+            "coordination_triggers": {
+                "resource_conflicts": "automatic coordination when teams need same resources",
+                "dependency_identification": "coordination triggered when task dependencies identified",
+                "objective_overlap": "coordination for overlapping or conflicting objectives",
+                "capability_gaps": "coordination when teams identify capability gaps"
+            },
+            "coordination_mechanisms": {
+                "direct_negotiation": "teams negotiate directly for resource allocation",
+                "mediated_discussion": "facilitated discussions for complex conflicts",
+                "consensus_building": "structured consensus building for shared decisions",
+                "escalation_protocols": "clear escalation paths for unresolved issues"
+            },
+            "coordination_tools": {
+                "shared_workspace": "collaborative workspace for coordination activities",
+                "communication_channels": "dedicated channels for inter-team communication",
+                "decision_tracking": "system for tracking and documenting coordination decisions",
+                "resource_visibility": "transparent view of resource allocation and availability"
+            }
+        }
+    
+    def _create_self_organization_guidelines(self, teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create guidelines for team self-organization"""
+        return {
+            "organization_principles": {
+                "purpose_alignment": "teams organize around shared purpose and objectives",
+                "capability_optimization": "teams organize to optimize use of capabilities",
+                "efficiency_focus": "teams organize for maximum efficiency and effectiveness",
+                "adaptation_readiness": "teams maintain flexibility for rapid adaptation"
+            },
+            "structural_flexibility": {
+                "role_fluidity": "team members can take on different roles as needed",
+                "boundary_permeability": "team boundaries can be adjusted based on needs",
+                "leadership_rotation": "leadership roles can rotate based on expertise and context",
+                "size_adaptation": "team size can be adjusted based on workload and complexity"
+            },
+            "organization_mechanisms": {
+                "self_assessment": "regular team self-assessment of organization effectiveness",
+                "restructuring_triggers": "clear triggers that indicate need for reorganization",
+                "reorganization_process": "structured process for implementing organizational changes",
+                "change_validation": "mechanisms to validate effectiveness of organizational changes"
+            }
+        }
+    
+    def _define_adaptation_triggers(self, objectives: List[str]) -> Dict[str, Any]:
+        """Define triggers that indicate need for adaptation"""
+        return {
+            "performance_triggers": {
+                "velocity_decline": "significant decrease in task completion velocity",
+                "quality_issues": "increase in defects or rework requirements",
+                "resource_utilization": "suboptimal resource utilization patterns",
+                "stakeholder_satisfaction": "decline in stakeholder satisfaction metrics"
+            },
+            "environmental_triggers": {
+                "objective_changes": "modifications to high-level objectives",
+                "resource_availability": "changes in resource availability or constraints",
+                "timeline_pressures": "external timeline pressures or deadline changes",
+                "technology_changes": "new technologies or tools that could improve performance"
+            },
+            "team_triggers": {
+                "capability_evolution": "teams develop new capabilities or lose existing ones",
+                "workload_imbalance": "significant imbalance in workload distribution",
+                "collaboration_friction": "difficulties in inter-team collaboration",
+                "motivation_changes": "changes in team motivation or engagement levels"
+            },
+            "trigger_thresholds": {
+                "performance_variance": "20% deviation from expected performance",
+                "timeline_variance": "15% deviation from planned timeline",
+                "quality_variance": "10% increase in defect rates",
+                "satisfaction_variance": "significant decrease in satisfaction scores"
+            }
+        }
+    
+    def _create_autonomous_performance_monitoring(self, teams: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Create autonomous performance monitoring system"""
+        return {
+            "monitoring_dimensions": {
+                "task_performance": {
+                    "completion_velocity": "rate of task completion",
+                    "quality_metrics": "defect rates and rework requirements",
+                    "effort_accuracy": "accuracy of effort estimates",
+                    "dependency_management": "effectiveness of managing task dependencies"
+                },
+                "team_performance": {
+                    "collaboration_effectiveness": "quality of intra-team collaboration",
+                    "capability_utilization": "how well team capabilities are utilized",
+                    "adaptation_agility": "speed and effectiveness of team adaptations",
+                    "innovation_rate": "rate of process and solution innovations"
+                },
+                "inter_team_performance": {
+                    "coordination_efficiency": "effectiveness of inter-team coordination",
+                    "knowledge_sharing": "rate and quality of knowledge sharing",
+                    "resource_sharing": "effectiveness of resource sharing",
+                    "conflict_resolution": "speed and effectiveness of conflict resolution"
+                }
+            },
+            "monitoring_mechanisms": {
+                "automated_tracking": "system automatically tracks quantitative metrics",
+                "self_reporting": "teams self-report on qualitative metrics",
+                "peer_feedback": "teams provide feedback on each other's performance",
+                "stakeholder_input": "stakeholders provide performance feedback"
+            },
+            "analysis_and_action": {
+                "trend_analysis": "system identifies performance trends and patterns",
+                "anomaly_detection": "system detects performance anomalies",
+                "improvement_suggestions": "system suggests performance improvements",
+                "action_triggering": "system automatically triggers actions for performance issues"
+            }
+        }
+    
     def get_component_status(self) -> Dict[str, Any]:
         """Get the current status of the task designer component."""
         return {
@@ -775,5 +1743,11 @@ class TaskDesigner(BaseModel):
             "auto_decompose_enabled": self.auto_decompose,
             "max_decomposition_depth": self.max_decomposition_depth,
             "complexity_threshold": self.complexity_threshold.value,
-            "tasks_created": len(self.framework.tasks) if self.framework else 0
+            "tasks_created": len(self.framework.tasks) if self.framework else 0,
+            "team_features": {
+                "team_task_assignment": True,
+                "cross_functional_tasks": True,
+                "autonomous_workflows": True,
+                "collaborative_optimization": True
+            }
         }
