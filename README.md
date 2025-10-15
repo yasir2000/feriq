@@ -598,6 +598,7 @@ python -m feriq.cli.main plan demo --type all
 - **[💻 CLI Guide](docs/cli_listing_guide.md)** - Comprehensive CLI capabilities
 
 ### Essential Guides
+- **[📚 API Documentation](docs/api.md)** - **NEW** - Complete Python API and CLI reference
 - **[🏗️ Architecture Overview](docs/architecture.md)** - System design and integration
 - **[🧠 Reasoning Guide](docs/reasoning_usage.md)** - Advanced reasoning capabilities
 - **[📊 Planning Guide](docs/reasoning_planning_guide.md)** - Intelligent planning

@@ -25,6 +25,7 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 - **[Model Integration Guide](models.md)** - LLM model setup and configuration
 
 ### 💻 Development
+- **[API Documentation](api.md)** - **📚 NEW** - Complete Python API and CLI reference
 - **[Programming Guide](programming_guide.md)** - Framework programming reference
 
 ---
@@ -77,6 +78,7 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 ## 💻 Programming & Integration
 
 ### Programming Guides
+- **[API Documentation](api.md)** - **📚 NEW** - Complete Python API and CLI reference
 - **[Programming Guide](programming_guide.md)** - Framework programming reference
 <!-- - **[Agent Development](agent_development.md)** - Creating intelligent agents -->
 <!-- - **[Workflow Development](workflow_development.md)** - Building complex workflows -->
@@ -233,6 +235,7 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 
 ### ✅ Completed Documentation
 - **[README.md](../README.md)** with comprehensive feature overview
+- **[API Documentation](api.md)** with complete Python API and CLI reference
 - **[CLI Listing Guide](cli_listing_guide.md)** with complete command reference
 - **[CLI User Guide](cli_guide.md)** with comprehensive CLI command reference
 - **[Role Management Guide](role_management.md)** with complete role creation and assignment system
@@ -249,7 +252,6 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 ### 🚧 In Progress
 - Individual component documentation
 - Advanced tutorial development
-- API reference documentation
 - Performance optimization guides
 
 ### 📝 Planned Documentation
