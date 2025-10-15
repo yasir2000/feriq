@@ -1,0 +1,15 @@
+{
+  "id": "a6a32e26-6632-4689-a496-541db9649b44",
+  "title": "Data Collection and Analysis for User Behavior Patterns & Purchase History",
+  "description": "Collect data on user behavior patterns such as browsing history, purchasing habits etc.",
+  "priority": "high",
+  "complexity": 0.5,
+  "estimated_effort": 24,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+  ],
+  "progress": 0.0
+}

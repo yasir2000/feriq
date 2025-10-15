@@ -1,0 +1,15 @@
+{
+  "id": "1ba0eced-fb4d-4da7-b657-df9b72f7cae1",
+  "title": "Design solution approach",
+  "description": "Design comprehensive solution approach using research expertise",
+  "priority": "high",
+  "complexity": 0.8,
+  "estimated_effort": 40,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+  ],
+  "progress": 0.0
+}

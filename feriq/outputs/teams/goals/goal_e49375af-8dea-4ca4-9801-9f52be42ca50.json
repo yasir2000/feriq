@@ -1,0 +1,15 @@
+{
+  "id": "e49375af-8dea-4ca4-9801-9f52be42ca50",
+  "title": "Analyze \n    Build a comprehensive e-c...",
+  "description": "AI-powered analysis of: \n    Build a comprehensive e-commerce recommendation system that can:\n    1. Analyze user behavior patterns and purchase history\n    2. Implement collaborative filtering and content-based algorithms\n    3. Handle real-time recommendations with sub-100ms latency\n    4. A/B test different recommendation strategies\n    5. Scale to handle millions of users and products\n    ",
+  "priority": "high",
+  "complexity": 0.7,
+  "estimated_effort": 40,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "1232bade-f6ad-4f46-b17d-0ae9b8277037"
+  ],
+  "progress": 0.0
+}

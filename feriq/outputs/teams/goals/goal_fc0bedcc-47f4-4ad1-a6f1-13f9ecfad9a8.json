@@ -1,0 +1,15 @@
+{
+  "id": "fc0bedcc-47f4-4ad1-a6f1-13f9ecfad9a8",
+  "title": "Analyze \n    Build a comprehensive e-c...",
+  "description": "Conduct thorough analysis of the problem: \n    Build a comprehensive e-commerce recommendation system that can:\n    1. Analyze user behavior patterns and purchase history\n    2. Implement collaborative filtering and content-based algorithms\n    3. Handle real-time recommendations with sub-100ms latency\n    4. A/B test different recommendation strategies\n    5. Scale to handle millions of users and products\n    ",
+  "priority": "high",
+  "complexity": 0.6,
+  "estimated_effort": 20,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+  ],
+  "progress": 0.0
+}

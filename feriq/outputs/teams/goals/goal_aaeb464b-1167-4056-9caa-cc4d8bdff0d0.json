@@ -1,0 +1,15 @@
+{
+  "id": "aaeb464b-1167-4056-9caa-cc4d8bdff0d0",
+  "title": "Implement solution",
+  "description": "Execute the designed solution with team coordination",
+  "priority": "medium",
+  "complexity": 0.7,
+  "estimated_effort": 60,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "1232bade-f6ad-4f46-b17d-0ae9b8277037"
+  ],
+  "progress": 0.0
+}

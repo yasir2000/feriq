@@ -1,0 +1,124 @@
+{
+  "id": "b8d74ac2-5bf7-4cd4-987f-50f06075a56a",
+  "name": "Problem Analysis Team",
+  "description": "AI-recommended team: AI-suggested team based on problem analysis",
+  "team_type": "autonomous",
+  "discipline": "research",
+  "members": [],
+  "goals": [
+    {
+      "id": "a6a32e26-6632-4689-a496-541db9649b44",
+      "title": "Data Collection and Analysis for User Behavior Patterns & Purchase History",
+      "description": "Collect data on user behavior patterns such as browsing history, purchasing habits etc.",
+      "priority": "high",
+      "complexity": 0.5,
+      "estimated_effort": 24,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "ab2f84c4-b00d-4c06-be8b-9c5259eb044a",
+      "title": "Implementing Collaborative Filtering Algorithm",
+      "description": "The algorithm is used to recommend products based on the behavior of a user.",
+      "priority": "high",
+      "complexity": 0.5,
+      "estimated_effort": 24,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "fc0bedcc-47f4-4ad1-a6f1-13f9ecfad9a8",
+      "title": "Analyze \n    Build a comprehensive e-c...",
+      "description": "Conduct thorough analysis of the problem: \n    Build a comprehensive e-commerce recommendation system that can:\n    1. Analyze user behavior patterns and purchase history\n    2. Implement collaborative filtering and content-based algorithms\n    3. Handle real-time recommendations with sub-100ms latency\n    4. A/B test different recommendation strategies\n    5. Scale to handle millions of users and products\n    ",
+      "priority": "high",
+      "complexity": 0.6,
+      "estimated_effort": 20,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "1ba0eced-fb4d-4da7-b657-df9b72f7cae1",
+      "title": "Design solution approach",
+      "description": "Design comprehensive solution approach using research expertise",
+      "priority": "high",
+      "complexity": 0.8,
+      "estimated_effort": 40,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "cb402d03-b74e-4779-ad4b-55eafe44d98c",
+      "title": "Implement solution",
+      "description": "Execute the designed solution with team coordination",
+      "priority": "medium",
+      "complexity": 0.7,
+      "estimated_effort": 60,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+      ],
+      "progress": 0.0
+    },
+    {
+      "id": "97f8fa68-a868-476c-8c64-b04515251433",
+      "title": "Validate and refine",
+      "description": "Test, validate, and refine the solution based on results",
+      "priority": "medium",
+      "complexity": 0.5,
+      "estimated_effort": 30,
+      "deadline": null,
+      "status": "active",
+      "sub_goals": [],
+      "assigned_teams": [
+        "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+      ],
+      "progress": 0.0
+    }
+  ],
+  "capabilities": [
+    "analyst",
+    "researcher",
+    "coordinator",
+    "specialist"
+  ],
+  "status": "forming",
+  "max_size": 10,
+  "min_size": 1,
+  "collaboration_mode": "cooperative",
+  "communication_protocols": [
+    "direct",
+    "broadcast",
+    "hierarchical"
+  ],
+  "decision_making_style": "consensus",
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.0,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.0
+  },
+  "created_at": "2025-10-15T15:39:52.305482",
+  "updated_at": "2025-10-15T15:40:26.057258"
+}

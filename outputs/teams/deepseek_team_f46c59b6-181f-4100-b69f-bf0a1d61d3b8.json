@@ -1,0 +1,39 @@
+{
+  "team": {
+    "id": "f46c59b6-181f-4100-b69f-bf0a1d61d3b8",
+    "name": "Problem Analysis Team",
+    "description": "AI-recommended team: AI-suggested team based on problem analysis",
+    "discipline": "research",
+    "members": 0,
+    "goals": 6
+  },
+  "ai_analysis": {
+    "analysis": "AI analysis completed",
+    "raw_response": "{\n    \"analysis\":\"The problem requires a comprehensive e-commerce recommendation system that can analyze user behavior patterns and purchase history to implement collaborative filtering algorithms with content based methods.\",\n    \n  \t\"recommended_teams\":[  {     \t      \t\t       \t\t\t        \t \t     \t\t\t\t\t\t\t\t\t         \t    ],           },],    {\"name\":\"Data Science Team\", \"discipline\" : [\"data science\"],},] ] ,,,,,\"}`}}}}}``]]}]}},{{{\"\"",
+    "recommended_teams": [
+      {
+        "name": "Problem Analysis Team",
+        "discipline": "research",
+        "rationale": "AI-suggested team based on problem analysis",
+        "size": 4,
+        "key_roles": [
+          "analyst",
+          "researcher",
+          "coordinator",
+          "specialist"
+        ]
+      }
+    ],
+    "coordination_strategy": "Collaborative approach with AI assistance",
+    "estimated_timeline": "4-6 weeks"
+  },
+  "performance_metrics": {
+    "efficiency": 0.0,
+    "collaboration_score": 0.128,
+    "goal_completion_rate": 0.0,
+    "adaptability": 0.2333333333333333,
+    "overall_performance": 0.09033333333333332
+  },
+  "created_at": "2025-10-15T15:45:14.390159",
+  "llm_model": "deepseek-coder:latest"
+}

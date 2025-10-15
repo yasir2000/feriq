@@ -1,0 +1,15 @@
+{
+  "id": "ab2f84c4-b00d-4c06-be8b-9c5259eb044a",
+  "title": "Implementing Collaborative Filtering Algorithm",
+  "description": "The algorithm is used to recommend products based on the behavior of a user.",
+  "priority": "high",
+  "complexity": 0.5,
+  "estimated_effort": 24,
+  "deadline": null,
+  "status": "active",
+  "sub_goals": [],
+  "assigned_teams": [
+    "b8d74ac2-5bf7-4cd4-987f-50f06075a56a"
+  ],
+  "progress": 0.0
+}
