@@ -28,6 +28,18 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 - **[API Documentation](api.md)** - **📚 NEW** - Complete Python API and CLI reference
 - **[Programming Guide](programming_guide.md)** - Framework programming reference
 
+## 📋 Project Planning & Governance
+
+### 🗺️ Strategic Planning
+- **[Roadmap](roadmap.md)** - **🆕 NEW** - Complete development roadmap and future plans
+- **[Feature Planning](feature_planning.md)** - **🆕 NEW** - Comprehensive feature planning guide
+- **[Development Milestones](development_milestones.md)** - **🆕 NEW** - Detailed milestone tracking
+
+### 🏛️ Project Management
+- **[Project Governance](governance.md)** - **🆕 NEW** - Governance structure and decision-making
+- **[Contributing Guidelines](contributing.md)** - **🆕 NEW** - Complete contribution guide
+- **[Changelog Template](changelog_template.md)** - **🆕 NEW** - Changelog guidelines and templates
+
 ---
 
 ## �📋 Quick Start Guides
@@ -195,7 +207,7 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 <!-- - **[Community Resources](support/community.md)** - Community support -->
 <!-- - **[Professional Support](support/professional.md)** - Enterprise support -->
 
-## 📝 Release Notes & Updates
+### 📝 Release Notes & Updates
 
 ### Version History
 <!-- - **[Release Notes](releases/release_notes.md)** - Version release notes -->
@@ -203,11 +215,15 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 <!-- - **[Breaking Changes](releases/breaking_changes.md)** - Breaking change documentation -->
 <!-- - **[Deprecation Notices](releases/deprecation.md)** - Deprecated features -->
 
-### Roadmap
-<!-- - **[Development Roadmap](roadmap/development.md)** - Future development plans -->
-<!-- - **[Feature Roadmap](roadmap/features.md)** - Planned features -->
-<!-- - **[Research Areas](roadmap/research.md)** - Research directions -->
-<!-- - **[Community Requests](roadmap/community.md)** - Community-requested features -->
+### Project Planning
+- **[Roadmap](roadmap.md)** - **🗺️ NEW** - Complete development roadmap and strategic planning
+- **[Feature Planning](feature_planning.md)** - **📋 NEW** - Feature planning process and prioritization
+- **[Development Milestones](development_milestones.md)** - **🎯 NEW** - Milestone tracking and progress
+
+### Project Management
+- **[Project Governance](governance.md)** - **🏛️ NEW** - Governance structure and decision-making processes
+- **[Contributing Guidelines](contributing.md)** - **🤝 NEW** - How to contribute to the project
+- **[Changelog Template](changelog_template.md)** - **📝 NEW** - Changelog guidelines and templates
 
 ## 🎯 Getting Help
 
@@ -248,6 +264,14 @@ Comprehensive documentation for the Feriq Collaborative AI Agents Framework with
 - **[Installation Guide](installation.md)** with detailed installation instructions
 - **[Quick Start Tutorial](quick_start.md)** with step-by-step first project
 - **[Model Integration Guide](models.md)** with LLM model setup and configuration
+
+#### 🆕 Project Planning & Governance (NEW!)
+- **[Roadmap](roadmap.md)** with complete development roadmap and strategic planning
+- **[Feature Planning](feature_planning.md)** with comprehensive feature planning process
+- **[Development Milestones](development_milestones.md)** with detailed milestone tracking
+- **[Project Governance](governance.md)** with governance structure and decision-making
+- **[Contributing Guidelines](contributing.md)** with complete contribution guide  
+- **[Changelog Template](changelog_template.md)** with changelog guidelines and templates
 
 ### 🚧 In Progress
 - Individual component documentation
